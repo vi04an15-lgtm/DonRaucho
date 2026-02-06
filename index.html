@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <style>
         #map {
-            height: 400px;
+            height: 500px;
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -44,9 +44,6 @@
                 <a href="#ubicacion"
                     class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-amber-100 transition">Ubicacion</a>
             </div>
-            <button id="menuBtn" class="md:hidden p-2 text-slate-600 dark:text-slate-300">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
         </div>
     </nav>
 
@@ -61,11 +58,11 @@
             </div>
             <img src="img/logo.jpg" alt="Logo de Don Raucho" class="w-48 h-48 object-contain">
             <h1 class="font-display text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6">Don Raucho</h1>
-            <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+            <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl text-justify">
                 Nuestro nombre nació como un homenaje en vida un hombre de principios
                 inquebrantables, profundamente querido y respetado por todos. Don Raucho siempre fue el pilar de su
                 familia, alguien que trabajo incansablemente por el bienestar de los suyos. Hoy, aunque ya no nos
-                acompana físicamente, su esencia sigue presente en cada rincón de nuestra botillería. Honramos su
+                acompaña físicamente, su esencia sigue presente en cada rincón de nuestra botillería. Honramos su
                 memoria y su legado de integridad.
             </p>
         </div>
@@ -95,7 +92,8 @@
                     <div class="p-6">
                         <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Jack Daniel's
                         </h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Jack Daniel’s Old No. 7 – El clásico
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Jack Daniel's Old No. 7
+                            – El clásico
                             entre los clásicos. Disfruta del sabor auténtico del whiskey americano más vendido del
                             mundo.</p>
 
@@ -110,7 +108,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">The Dalmore</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">The Dalmore 18 Years – El estándar de
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">The Dalmore 18 Years –
+                            El estándar de
                             oro de las Highlands. Mucho más que un whisky; una herencia de excelencia desde 1839.</p>
                     </div>
                 </div>
@@ -122,7 +121,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Blue Label</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Blue Label – El whisky escocés más
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Blue Label – El whisky
+                            escocés más
                             reconocido del mundo. Un clásico de la calidad y el sabor premium.</p>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
             </div>
         </div>
     </section>
-    <section class="py-20 px-20 bg-white dark:bg-slate-900">
+    <section class="py-40 px-6 bg-white dark:bg-slate-900">
         <div id="default-carousel" class="relative w-full h-16 md:h-24" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-full w-full overflow-visible rounded-base md:h-48">
@@ -216,7 +216,8 @@
                     </div>
                     <div class="p-5">
                         <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCOLA</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Pisco Mistral 35° 750cc más bebida de
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco Mistral 35° 750cc
+                            más bebida de
                             2.5 litros.</p>
                         <div class="flex items-end gap-2">
                             <span class="text-black dark:text-amber-100 font-bold text-2xl">$9.490</span>
@@ -237,7 +238,8 @@
                     <div class="p-5">
                         <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCOLA 2
                         </h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Pisco Alto del Carmen 35° 750cc más
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco Alto del Carmen
+                            35° 750cc más
                             bebida de 2.5 litros.</p>
                         <div class="flex items-end gap-2">
                             <span class="text-black dark:text-amber-100 font-bold text-2xl">$10.490</span>
@@ -258,7 +260,8 @@
                     <div class="p-5">
                         <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">The Dalmore 12 Años
                         </h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Pisco mistral NOBEL variedad más
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco mistral NOBEL
+                            variedad más
                             bebida 2.5 litros.</p>
                         <div class="flex items-end gap-2">
                             <span class="text-black dark:text-amber-100 font-bold text-2xl">$16.990</span>
@@ -270,7 +273,7 @@
             </div>
 
         </div>
-        <p class="text-center text-slate-500 dark:text-slate-400 font-bold text-sm tracking-widest uppercase px-4">
+        <h2 class="text-center text-slate-500 dark:text-slate-400 font-bold text-2xl mt-12">
             CONSULTAR DISPONIBILIDAD EN LICORERÍA</h2>
 
 
@@ -338,25 +341,30 @@
 
             <!-- Redes sociales -->
             <div class="flex justify-center gap-6 mb-8">
-                <a href="https://www.instagram.com/donraucho/" class="text-slate-400 hover:text-amber-100 transition"
-                    title="Instagram">
-                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" color="currentColor">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                <a href="https://www.instagram.com/donraucho/" title="Instagram">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path fill="currentColor" fill-rule="evenodd"
+                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                            clip-rule="evenodd" />
                     </svg>
+
                 </a>
-                <a href="https://www.facebook.com/donraucho.botilleria"
-                    class="text-slate-400 hover:text-amber-100 transition" title="Facebook">
-                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                        <path
-                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                <a href="https://www.facebook.com/donraucho.botilleria" title="Facebook">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                            clip-rule="evenodd" />
                     </svg>
+
                 </a>
             </div>
 
             <p class="text-xs text-slate-400 border-t border-slate-700 pt-8">
                 © 2024 Don Raucho Botilleria. Todos los derechos reservados.<br>
-                Solo para mayores de 18 anos.
+                Solo para mayores de 18 años.
             </p>
         </div>
     </footer>

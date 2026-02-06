@@ -1,14 +1,6 @@
 // Script para Botillería Don Raucho
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Manejo del menú hamburguesa
-    const menuBtn = document.getElementById('menuBtn');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', function () {
-            console.log('Menu toggled');
-        });
-    }
-
     // Efecto de scroll suave en anclas
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -125,6 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const marker = L.marker([-37.81909289065312, -72.67175960064439], {icon: blackIcon}).addTo(map);
         marker.bindPopup('<b>Don Raucho Botillería</b><br>Av. Dillman Bullock, 3036, Angol, Chile').openPopup();
         
+        // Hacer zoom al hacer click en el marcador
+        marker.on('click', function() {
+            map.zoomIn();
+        });
     }
 });
 

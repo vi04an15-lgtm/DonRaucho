@@ -9,6 +9,11 @@ body {
     min-height: 100vh;
 }
 
+/* Justificar todos los párrafos */
+p {
+    text-align: justify;
+}
+
 
 /* Animaciones suaves */
 @keyframes fadeInUp {
@@ -39,7 +44,7 @@ nav a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #000000;
+    background-color: #ffffff;
     transition: width 0.3s ease;
 }
 
