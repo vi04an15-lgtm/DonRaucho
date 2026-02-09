@@ -3,10 +3,13 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                primary: "#D97706",
+                primary: "#BF6B04",
                 secondary: "#1A1A1A",
-                "background-light": "#FDFCFB",
+                accent: "#BF6B04",
+                "background-light": "#F5F5F5",
                 "background-dark": "#0A0A0A",
+                "dark-card": "#2A2A2A",
+                "dark-secondary": "#3A3A3A",
             },
             fontFamily: {
                 display: ["Playfair Display", "serif"],
