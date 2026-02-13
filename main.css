@@ -1,0 +1,119 @@
+/**
+ * @file main.css
+ * @description Hoja de estilos complementaria para Don Raucho Botillería.
+ * @summary Este archivo contiene estilos personalizados que no son gestionados directamente por Tailwind CSS.
+ *          Incluye configuraciones base, estilos para componentes específicos como el mapa de Leaflet,
+ *          y ajustes de responsive. La mayoría de los estilos de la UI se manejan con utilidades de Tailwind en el HTML.
+ */
+
+/* ==========================================================================
+   1. Estilos Base y Globales
+   ========================================================================== */
+
+/**
+ * Se establece un scroll suave para toda la página al navegar mediante anclas.
+ * El `min-height` en el body asegura que el footer se mantenga al fondo en páginas con poco contenido.
+ */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/**
+ * Justifica el texto de todos los párrafos para una apariencia más limpia y ordenada,
+ * especialmente en descripciones largas.
+ */
+p {
+    text-align: justify;
+}
+
+
+/* ==========================================================================
+   2. Layout y Estructura Principal
+   ========================================================================== */
+
+/**
+ * Estilos para el overlay del menú móvil.
+ * Cuando el menú está abierto, el contenido principal (`main`) se oscurece y se deshabilitan
+ * las interacciones para centrar el foco del usuario en la navegación.
+ * La transición suave en el filtro (`filter`) proporciona un efecto visual agradable.
+ */
+main {
+    transition: filter 0.3s ease-in-out;
+}
+
+main.menu-open-overlay {
+    filter: brightness(0.5);
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   3. Componentes Específicos
+   ========================================================================== */
+
+/**
+ * Efecto de subrayado animado para los enlaces de la navegación principal.
+ * Mejora la retroalimentación visual al interactuar con el menú de escritorio.
+ */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff; /* Color del subrayado en modo oscuro */
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/**
+ * Estilos para el contenedor del mapa de Leaflet.
+ * Se define una altura fija y bordes redondeados para integrar el mapa
+ * de forma cohesiva en el diseño de la tarjeta.
+ */
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+/**
+ * Estilos para los indicadores del carrusel.
+ * Proporciona una base visual para los indicadores de diapositivas, con una
+ * transición suave para el estado activo.
+ */
+[data-carousel-slide-to] {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+[data-carousel-slide-to].bg-white {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* ==========================================================================
+   4. Media Queries y Diseño Responsivo
+   ========================================================================== */
+
+/**
+ * Ajusta el tamaño de los encabezados principales en dispositivos móviles
+ * para mejorar la legibilidad y la jerarquía visual en pantallas pequeñas.
+ */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.25rem; /* Tailwind's text-4xl */
+    }
+
+    h2 {
+        font-size: 1.875rem; /* Tailwind's text-3xl */
+    }
+}
