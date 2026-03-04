@@ -66,7 +66,8 @@ nav a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffffff; /* Color del subrayado en modo oscuro */
+    background-color: #ffffff;
+    /* Color del subrayado en modo oscuro */
     transition: width 0.3s ease;
 }
 
@@ -83,6 +84,8 @@ nav a:hover::after {
     height: 500px;
     width: 100%;
     border-radius: 12px;
+    isolation: isolate;
+    /* Contiene los z-indexes de Leaflet para no sobrepasar el header */
 }
 
 /**
@@ -101,7 +104,60 @@ nav a:hover::after {
 
 
 /* ==========================================================================
-   4. Media Queries y Diseño Responsivo
+   4. Efecto Desvanecido entre Secciones
+   ========================================================================== */
+
+/**
+ * Divisores de gradiente colocados entre cada par de secciones.
+ * El margin negativo los monta sobre el borde de ambas secciones
+ * para crear una transición visual suave sin corte brusco.
+ */
+.section-divider {
+    height: 70px;
+    position: relative;
+    z-index: 5;
+    margin-top: -35px;
+    margin-bottom: -35px;
+    pointer-events: none;
+}
+
+
+/* Ofertas (blanco / #2A2A2A) → Destacados (slate-50 / #1A1A1A) */
+.divider-ofertas-destacados {
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+}
+
+@media (prefers-color-scheme: dark) {
+    .divider-ofertas-destacados {
+        background: linear-gradient(to bottom, #2A2A2A, #1A1A1A);
+    }
+}
+
+/* Destacados (slate-50 / #1A1A1A) → Carrusel (blanco / #2A2A2A) */
+.divider-destacados-carrusel {
+    background: linear-gradient(to bottom, #f8fafc, #ffffff);
+}
+
+@media (prefers-color-scheme: dark) {
+    .divider-destacados-carrusel {
+        background: linear-gradient(to bottom, #1A1A1A, #2A2A2A);
+    }
+}
+
+/* Carrusel (blanco / #2A2A2A) → Ubicación (slate-50 / #1A1A1A) */
+.divider-carrusel-ubicacion {
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+}
+
+@media (prefers-color-scheme: dark) {
+    .divider-carrusel-ubicacion {
+        background: linear-gradient(to bottom, #2A2A2A, #1A1A1A);
+    }
+}
+
+
+/* ==========================================================================
+   5. Media Queries y Diseño Responsivo
    ========================================================================== */
 
 /**
@@ -110,10 +166,12 @@ nav a:hover::after {
  */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.25rem; /* Tailwind's text-4xl */
+        font-size: 2.25rem;
+        /* Tailwind's text-4xl */
     }
 
     h2 {
-        font-size: 1.875rem; /* Tailwind's text-3xl */
+        font-size: 1.875rem;
+        /* Tailwind's text-3xl */
     }
 }
