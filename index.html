@@ -69,6 +69,30 @@
        Hojas de Estilo y Fuentes
        ========================================================================== -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#BF6B04",
+                        secondary: "#1A1A1A",
+                        accent: "#BF6B04",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#0A0A0A",
+                        "dark-card": "#2A2A2A",
+                        "dark-secondary": "#3A3A3A",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -115,11 +139,13 @@
         </div>
 
         <!-- Panel de Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#origen" class="block py-2 px-4 text-sm text-slate-900 dark:text-white">Origen</a>
-            <a href="#ofertas" class="block py-2 px-4 text-sm text-slate-900 dark:text-white">Ofertas</a>
-            <a href="#destacados" class="block py-2 px-4 text-sm text-slate-900 dark:text-white">Destacados</a>
-            <a href="#ubicacion" class="block py-2 px-4 text-sm text-slate-900 dark:text-white">Ubicacion</a>
+        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-xl border-b border-slate-200 dark:border-gray-950 md:hidden z-40 shadow-2xl transition-all duration-300">
+            <div class="px-6 py-6 flex flex-col gap-6">
+                <a href="#origen" class="block text-lg font-medium text-slate-900 dark:text-[#E8E8E8] hover:text-[#BF6B04] dark:hover:text-[#BF6B04] transition-colors">Origen</a>
+                <a href="#ofertas" class="block text-lg font-medium text-slate-900 dark:text-[#E8E8E8] hover:text-[#BF6B04] dark:hover:text-[#BF6B04] transition-colors">Ofertas</a>
+                <a href="#destacados" class="block text-lg font-medium text-slate-900 dark:text-[#E8E8E8] hover:text-[#BF6B04] dark:hover:text-[#BF6B04] transition-colors">Destacados</a>
+                <a href="#ubicacion" class="block text-lg font-medium text-slate-900 dark:text-[#E8E8E8] hover:text-[#BF6B04] dark:hover:text-[#BF6B04] transition-colors">Ubicacion</a>
+            </div>
         </div>
     </header>
 
@@ -141,7 +167,7 @@
                             loading="lazy">
                     </figure>
                     <div
-                        class="max-w-3xl p-8 text-center bg-black/70 backdrop-blur-0 rounded-xl border border-white/10">
+                        class="max-w-3xl p-8 md:p-12 text-center bg-black/70 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
                         <div
                             class="inline-block px-3 py-1 rounded-full border border-gray-300 dark:border-gray-950 text-black dark:text-[#BF6B04] text-xs font-bold uppercase tracking-widest mb-4">
                             Nuestra Historia
@@ -181,20 +207,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Tarjeta de Oferta 1 -->
                     <div
-                        class="bg-white dark:bg-[#1A1A1A]/95 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 scroll-animate opacity-0 translate-y-4">
-                        <figure class="relative w-full h-64 bg-slate-200 dark:bg-slate-700">
+                        class="bg-white dark:bg-[#1A1A1A] rounded-2xl overflow-hidden border border-slate-100 dark:border-gray-900 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 scroll-animate opacity-0 translate-y-4 group">
+                        <figure class="relative w-full h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden">
                             <img src="img/productos/mistral750.webp" alt="Promo Piscola"
-                                class="w-full h-full object-cover" loading="lazy">
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                             <div class="absolute top-3 right-3">
-                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full">MÁS
-                                    HIELO</span>
+                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg backdrop-blur-md">MÁS HIELO</span>
                             </div>
                         </figure>
                         <div class="p-5">
                             <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCOLA</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco Mistral 35°
-                                750cc
-                                más bebida de 2.5 litros.</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco Mistral 35° 750cc más bebida de 2.5 litros.</p>
                             <div class="flex items-end gap-2">
                                 <span class="text-black dark:text-amber-100 font-bold text-2xl">$9.490</span>
                                 <span class="text-slate-400 line-through text-sm mb-1">$10.990</span>
@@ -202,22 +225,18 @@
                         </div>
                     </div>
                     <!-- Tarjeta de Oferta 2 -->
-                    <div class="bg-white dark:bg-[#1A1A1A]/95 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 scroll-animate opacity-0 translate-y-4"
+                    <div class="bg-white dark:bg-[#1A1A1A] rounded-2xl overflow-hidden border border-slate-100 dark:border-gray-900 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 scroll-animate opacity-0 translate-y-4 group"
                         style="transition-delay: 150ms;">
-                        <figure class="relative w-full h-64 bg-slate-200 dark:bg-slate-700">
+                        <figure class="relative w-full h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden">
                             <img src="img/productos/altodelcarmen.webp" alt="Promo Piscola 2"
-                                class="w-full h-full object-cover" loading="lazy">
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                             <div class="absolute top-3 right-3">
-                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full">MÁS
-                                    HIELO</span>
+                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg backdrop-blur-md">MÁS HIELO</span>
                             </div>
                         </figure>
                         <div class="p-5">
-                            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCOLA 2
-                            </h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco Alto del
-                                Carmen
-                                35° 750cc más bebida de 2.5 litros.</p>
+                            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCOLA 2</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco Alto del Carmen 35° 750cc más bebida de 2.5 litros.</p>
                             <div class="flex items-end gap-2">
                                 <span class="text-black dark:text-amber-100 font-bold text-2xl">$10.490</span>
                                 <span class="text-slate-400 line-through text-sm mb-1">$11.990</span>
@@ -225,24 +244,19 @@
                         </div>
                     </div>
                     <!-- Tarjeta de Oferta 3 -->
-                    <div class="bg-white dark:bg-[#1A1A1A]/95 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 scroll-animate opacity-0 translate-y-4"
+                    <div class="bg-white dark:bg-[#1A1A1A] rounded-2xl overflow-hidden border border-slate-100 dark:border-gray-900 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 scroll-animate opacity-0 translate-y-4 group"
                         style="transition-delay: 300ms;">
-                        <figure class="relative w-full h-64 bg-slate-200 dark:bg-slate-700">
+                        <figure class="relative w-full h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden">
                             <img src="img/productos/nobelbarrica.webp" alt="Barrica tostada"
-                                class="w-full h-full object-cover" loading="lazy">
-                            <div class="absolute top-3 right-3">
-                                <span
-                                    class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full">PREMIUM</span>
-                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full">MÁSw
-                                    HIELO</span>
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                            <div class="absolute top-3 right-3 flex flex-col gap-1 items-end">
+                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg backdrop-blur-md mb-1">PREMIUM</span>
+                                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg backdrop-blur-md">MÁS HIELO</span>
                             </div>
                         </figure>
                         <div class="p-5">
-                            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCO
-                                PREMIUM
-                            </h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco mistral NOBEL
-                                variedad más bebida 2.5 litros.</p>
+                            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Promo PISCO PREMIUM</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Pisco mistral NOBEL variedad más bebida 2.5 litros.</p>
                             <div class="flex items-end gap-2">
                                 <span class="text-black dark:text-amber-100 font-bold text-2xl">$16.990</span>
                                 <span class="text-slate-400 line-through text-sm mb-1">$18.490</span>
@@ -274,50 +288,37 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Tarjeta de Producto 1 -->
                     <div
-                        class="bg-white dark:bg-[#2A2A2A]/95 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 scroll-animate opacity-0 translate-y-4">
-                        <figure class="w-full h-64 bg-slate-200 dark:bg-slate-700">
+                        class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-slate-100 dark:border-gray-900 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 scroll-animate opacity-0 translate-y-4 group">
+                        <figure class="w-full h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden">
                             <img src="img/productos/jackdaniels.webp" alt="Jack Daniel's"
-                                class="w-full h-full  object-cover" loading="lazy">
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         </figure>
                         <div class="p-6">
-                            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Jack Daniel's
-                            </h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Jack Daniel's Old
-                                No. 7
-                                – El clásico entre los clásicos. Disfruta del sabor auténtico del whiskey americano más
-                                vendido del
-                                mundo.</p>
+                            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Jack Daniel's</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Jack Daniel's Old No. 7 – El clásico entre los clásicos. Disfruta del sabor auténtico del whiskey americano más vendido del mundo.</p>
                         </div>
                     </div>
                     <!-- Tarjeta de Producto 2 -->
-                    <div class="bg-white dark:bg-[#2A2A2A]/95 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 scroll-animate opacity-0 translate-y-4"
+                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-slate-100 dark:border-gray-900 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 scroll-animate opacity-0 translate-y-4 group"
                         style="transition-delay: 150ms;">
-                        <figure class="w-full h-64 bg-slate-200 dark:bg-slate-700">
+                        <figure class="w-full h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden">
                             <img src="img/productos/dalmore3.webp" alt="The Dalmore 18 años"
-                                class="w-full h-full object-cover" loading="lazy">
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         </figure>
                         <div class="p-6">
-                            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">The Dalmore
-                            </h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">The Dalmore 18 Years
-                                –
-                                El estándar de oro de las Highlands. Mucho más que un whisky; una herencia de excelencia
-                                desde 1839.</p>
+                            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">The Dalmore</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">The Dalmore 18 Years – El estándar de oro de las Highlands. Mucho más que un whisky; una herencia de excelencia desde 1839.</p>
                         </div>
                     </div>
                     <!-- Tarjeta de Producto 3 -->
-                    <div class="bg-white dark:bg-[#2A2A2A]/95 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 scroll-animate opacity-0 translate-y-4"
+                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-slate-100 dark:border-gray-900 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 scroll-animate opacity-0 translate-y-4 group"
                         style="transition-delay: 300ms;">
-                        <figure class="w-full h-64 bg-slate-200 dark:bg-slate-700">
-                            <img src="img/productos/bluelabel.webp" alt="Blue Label" class="w-full h-full object-cover"
-                                loading="lazy">
+                        <figure class="w-full h-64 bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                            <img src="img/productos/bluelabel.webp" alt="Blue Label" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         </figure>
                         <div class="p-6">
-                            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Blue Label
-                            </h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Blue Label – El
-                                whisky
-                                escocés más reconocido del mundo. Un clásico de la calidad y el sabor premium.</p>
+                            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Blue Label</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-justify">Blue Label – El whisky escocés más reconocido del mundo. Un clásico de la calidad y el sabor premium.</p>
                         </div>
                     </div>
                 </div>
@@ -342,7 +343,7 @@
                 </div>
 
                 <!-- Carrusel -->
-                <div id="default-carousel" class="relative w-full rounded-xl overflow-hidden shadow-2xl"
+                <div id="default-carousel" class="relative w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
                     data-carousel="slide">
                     <!-- Slides -->
                     <div class="relative h-72 md:h-[480px]">
@@ -392,14 +393,14 @@
 
                     <!-- Botón Anterior -->
                     <button type="button"
-                        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 md:px-8 cursor-pointer group focus:outline-none"
                         data-carousel-prev>
                         <span
-                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 dark:bg-black/50 group-hover:bg-[#BF6B04]/80 transition-colors duration-300 group-focus:ring-2 group-focus:ring-white">
-                            <svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true"
+                            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/30 dark:bg-black/50 backdrop-blur-md border border-white/30 dark:border-white/10 group-hover:bg-primary/90 group-hover:scale-110 shadow-lg text-white transition-all duration-300 group-focus:ring-4 group-focus:ring-white/50">
+                            <svg class="w-6 h-6 text-white rtl:rotate-180" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m15 19-7-7 7-7" />
+                                    stroke-width="2.5" d="m15 19-7-7 7-7" />
                             </svg>
                             <span class="sr-only">Anterior</span>
                         </span>
@@ -407,14 +408,14 @@
 
                     <!-- Botón Siguiente -->
                     <button type="button"
-                        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 md:px-8 cursor-pointer group focus:outline-none"
                         data-carousel-next>
                         <span
-                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 dark:bg-black/50 group-hover:bg-[#BF6B04]/80 transition-colors duration-300 group-focus:ring-2 group-focus:ring-white">
-                            <svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true"
+                            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/30 dark:bg-black/50 backdrop-blur-md border border-white/30 dark:border-white/10 group-hover:bg-primary/90 group-hover:scale-110 shadow-lg text-white transition-all duration-300 group-focus:ring-4 group-focus:ring-white/50">
+                            <svg class="w-6 h-6 text-white rtl:rotate-180" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m9 5 7 7-7 7" />
+                                    stroke-width="2.5" d="m9 5 7 7-7 7" />
                             </svg>
                             <span class="sr-only">Siguiente</span>
                         </span>
@@ -439,14 +440,14 @@
                     </h2>
                 </div>
                 <div
-                    class="bg-white dark:bg-[#1A1A1A] rounded-lg overflow-hidden border border-slate-200 dark:border-gray-950 scroll-animate opacity-0 translate-y-4 transition-all duration-700 ease-out">
+                    class="bg-white dark:bg-[#1A1A1A] rounded-2xl overflow-hidden shadow-2xl border border-slate-100 dark:border-gray-900 scroll-animate opacity-0 translate-y-4 transition-all duration-700 ease-out">
                     <div id="map" class="w-full bg-slate-200 dark:bg-[#2A2A2A]"></div>
                     <div class="p-8 text-center">
                         <p class="text-slate-600 dark:text-slate-400 mb-6">Av. Dillman Bullock, 3036, Angol, Chile</p>
                         <a href="https://maps.app.goo.gl/npoUnvHpCSmgpfev5" target="_blank" rel="noopener noreferrer"
-                            class="group inline-flex items-center bg-primary text-white font-bold py-3 px-6 rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out">
+                            class="group inline-flex items-center bg-primary text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:scale-[1.03] transition-all duration-300 ease-in-out">
                             <span
-                                class="material-symbols-outlined mr-0 opacity-0 group-hover:mr-2 group-hover:opacity-100 transition-all duration-300">
+                                class="material-symbols-outlined mr-0 w-0 overflow-hidden opacity-0 group-hover:mr-2 group-hover:w-auto group-hover:opacity-100 transition-all duration-300">
                                 map
                             </span>
                             Cómo llegar
