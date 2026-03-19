@@ -55,25 +55,7 @@ main.menu-open-overlay {
    3. Componentes Específicos
    ========================================================================== */
 
-/**
- * Efecto de subrayado animado para los enlaces de la navegación principal.
- * Mejora la retroalimentación visual al interactuar con el menú de escritorio.
- */
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #ffffff;
-    /* Color del subrayado en modo oscuro */
-    transition: width 0.3s ease;
-}
 
-nav a:hover::after {
-    width: 100%;
-}
 
 /**
  * Estilos para el contenedor del mapa de Leaflet.

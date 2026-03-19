@@ -18,6 +18,15 @@
     <title>Don Raucho Botilleria</title>
     <meta name="description"
         content="Don Raucho Botilleria, la mejor selección de licores, vinos y cervezas en Angol. Visítanos y descubre nuestras ofertas.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    
+    <!-- Optimizaciones de Rendimiento (Preload & Preconnect) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="./img/bar.webp" as="image">
+    <link rel="preload" href="img/logo.png" as="image">
 
     <!-- ==========================================================================
        Schema Markup (JSON-LD) para SEO Avanzado
@@ -163,13 +172,13 @@
         <section id="origen"
             class="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] pt-32 pb-20 px-6 bg-cover bg-center bg-fixed"
             style="background-image: url('./img/bar.webp');">
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-md"></div>
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-md transform-gpu"></div>
             <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center justify-center h-full text-center">
                 <div
                     class="flex flex-col items-center gap-8 scroll-animate opacity-0 translate-y-4 transition-all duration-700 ease-out">
                     <figure>
                         <img src="img/logo.png" alt="Logo de Don Raucho" class="w-48 h-48 object-contain"
-                            loading="lazy">
+                            fetchpriority="high">
                     </figure>
                     <div
                         class="max-w-3xl p-8 md:p-12 text-center bg-black/70 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
