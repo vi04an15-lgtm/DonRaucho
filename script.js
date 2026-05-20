@@ -157,16 +157,17 @@ function initInteractiveMap() {
 
 /**
  * @function initAgeVerification
- * @description Maneja el modal de verificación de edad para mayores de 18 años.
+ * @description Maneja el modal de verificación de edad basado en la fecha de nacimiento.
  */
 function initAgeVerification() {
     const modal = document.getElementById('age-modal');
     const confirmBtn = document.getElementById('age-confirm');
     const denyBtn = document.getElementById('age-deny');
+    const birthdateInput = document.getElementById('birthdate');
+    const errorMsg = document.getElementById('age-error');
 
     if (!modal) return;
 
-    // Verificar si ya fue aceptado anteriormente
     if (localStorage.getItem('ageVerified') === 'true') {
         modal.classList.add('hidden');
         return;
@@ -175,8 +176,28 @@ function initAgeVerification() {
     modal.classList.remove('hidden');
 
     confirmBtn.addEventListener('click', () => {
-        localStorage.setItem('ageVerified', 'true');
-        modal.classList.add('hidden');
+        const birthDate = new Date(birthdateInput.value);
+        const today = new Date();
+        
+        if (!birthdateInput.value) {
+            errorMsg.textContent = "Por favor, selecciona una fecha.";
+            errorMsg.classList.remove('hidden');
+            return;
+        }
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+
+        if (age >= 18) {
+            localStorage.setItem('ageVerified', 'true');
+            modal.classList.add('hidden');
+        } else {
+            errorMsg.textContent = "Debes ser mayor de 18 años para ingresar.";
+            errorMsg.classList.remove('hidden');
+        }
     });
 
     denyBtn.addEventListener('click', () => {
