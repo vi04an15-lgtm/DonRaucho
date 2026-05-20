@@ -91,49 +91,50 @@ main.menu-open-overlay {
 
 /**
  * Divisores de gradiente colocados entre cada par de secciones.
- * El margin negativo los monta sobre el borde de ambas secciones
- * para crear una transición visual suave sin corte brusco.
+ * Ajustados para eliminar la línea divisoria visible.
  */
 .section-divider {
-    height: 70px;
+    height: 120px;
     position: relative;
     z-index: 5;
-    margin-top: -35px;
-    margin-bottom: -35px;
+    margin-top: -60px;
+    margin-bottom: -60px;
     pointer-events: none;
+    backdrop-filter: blur(12px);
+    border: none;
 }
 
 
 /* Ofertas (blanco / #2A2A2A) → Destacados (slate-50 / #1A1A1A) */
 .divider-ofertas-destacados {
-    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(248, 250, 252, 1));
 }
 
 @media (prefers-color-scheme: dark) {
     .divider-ofertas-destacados {
-        background: linear-gradient(to bottom, #2A2A2A, #1A1A1A);
+        background: linear-gradient(to bottom, rgba(42, 42, 42, 0), rgba(18, 18, 18, 1));
     }
 }
 
 /* Destacados (slate-50 / #1A1A1A) → Carrusel (blanco / #2A2A2A) */
 .divider-destacados-carrusel {
-    background: linear-gradient(to bottom, #f8fafc, #ffffff);
+    background: linear-gradient(to bottom, rgba(248, 250, 252, 0), rgba(255, 255, 255, 1));
 }
 
 @media (prefers-color-scheme: dark) {
     .divider-destacados-carrusel {
-        background: linear-gradient(to bottom, #1A1A1A, #2A2A2A);
+        background: linear-gradient(to bottom, rgba(18, 18, 18, 0), rgba(42, 42, 42, 1));
     }
 }
 
 /* Carrusel (blanco / #2A2A2A) → Ubicación (slate-50 / #1A1A1A) */
 .divider-carrusel-ubicacion {
-    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(248, 250, 252, 1));
 }
 
 @media (prefers-color-scheme: dark) {
     .divider-carrusel-ubicacion {
-        background: linear-gradient(to bottom, #2A2A2A, #1A1A1A);
+        background: linear-gradient(to bottom, rgba(42, 42, 42, 0), rgba(18, 18, 18, 1));
     }
 }
 
