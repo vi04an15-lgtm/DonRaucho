@@ -472,6 +472,18 @@
     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
     <script src="script.js" defer></script>
+
+    <!-- Modal de Verificación de Edad -->
+    <div id="age-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm hidden">
+        <div class="bg-[#1A1A1A] border border-[#BF6B04]/30 p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl">
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Verificación de Edad</h2>
+            <p class="text-slate-400 text-sm mb-8">Debes ser mayor de 18 años para ingresar a este sitio.</p>
+            <div class="flex gap-4">
+                <button id="age-deny" class="flex-1 py-3 px-4 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition">Salir</button>
+                <button id="age-confirm" class="flex-1 py-3 px-4 rounded-xl bg-[#BF6B04] text-white font-bold hover:bg-[#A05A03] transition">Soy mayor de 18</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

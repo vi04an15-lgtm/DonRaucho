@@ -156,10 +156,40 @@ function initInteractiveMap() {
 }
 
 /**
+ * @function initAgeVerification
+ * @description Maneja el modal de verificación de edad para mayores de 18 años.
+ */
+function initAgeVerification() {
+    const modal = document.getElementById('age-modal');
+    const confirmBtn = document.getElementById('age-confirm');
+    const denyBtn = document.getElementById('age-deny');
+
+    if (!modal) return;
+
+    // Verificar si ya fue aceptado anteriormente
+    if (localStorage.getItem('ageVerified') === 'true') {
+        modal.classList.add('hidden');
+        return;
+    }
+
+    modal.classList.remove('hidden');
+
+    confirmBtn.addEventListener('click', () => {
+        localStorage.setItem('ageVerified', 'true');
+        modal.classList.add('hidden');
+    });
+
+    denyBtn.addEventListener('click', () => {
+        window.location.href = 'https://www.google.com';
+    });
+}
+
+/**
  * @function init
  * @description Función principal de inicialización. Se encarga de orquestar la llamada a todos los módulos.
  */
 function init() {
+    initAgeVerification();
     initMobileMenu();
     initSmoothScroll();
     initScrollAnimations();
