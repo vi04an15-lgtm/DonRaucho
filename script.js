@@ -173,15 +173,15 @@ function initAgeVerification() {
         return;
     }
 
-    modal.classList.remove('hidden');
+    modal.style.display = "flex";
 
-    confirmBtn.addEventListener('click', () => {
+    confirmBtn.addEventListener("click", () => {
         const birthDate = new Date(birthdateInput.value);
         const today = new Date();
         
         if (!birthdateInput.value) {
             errorMsg.textContent = "Por favor, selecciona una fecha.";
-            errorMsg.classList.remove('hidden');
+            errorMsg.classList.remove("hidden");
             return;
         }
 
@@ -192,11 +192,11 @@ function initAgeVerification() {
         }
 
         if (age >= 18) {
-            localStorage.setItem('ageVerified', 'true');
-            modal.classList.add('hidden');
+            localStorage.setItem("ageVerified", "true");
+            modal.style.display = "none";
         } else {
             errorMsg.textContent = "Debes ser mayor de 18 años para ingresar.";
-            errorMsg.classList.remove('hidden');
+            errorMsg.classList.remove("hidden");
         }
     });
 

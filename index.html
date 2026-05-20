@@ -191,7 +191,7 @@
                             pilar de
                             su familia, alguien que trabajo incansablemente por el bienestar de los suyos. Hoy, aunque
                             ya no
-                            nos acompaña físicamente, su esencia sigue presente en cada rincón de nuestra licoreria.
+                            nos acompaña físicamente, su esencia sigue presente en cada rincón de nuestra licoreriain.
                             Honramos
                             su memoria y su legado de integridad.
                         </p>
@@ -474,19 +474,21 @@
     <script src="script.js" defer></script>
 
     <!-- Modal de Verificación de Edad -->
-    <div id="age-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm hidden">
+    <div id="age-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm" style="display: none;">
         <div class="bg-[#1A1A1A] border border-[#BF6B04]/30 p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl">
             <h2 class="font-display text-2xl font-bold text-white mb-2">Verificación de Edad</h2>
             <p class="text-slate-400 text-sm mb-6">Por favor, ingresa tu fecha de nacimiento.</p>
-            
-            <input type="date" id="birthdate" 
+
+            <input type="date" id="birthdate"
                 class="w-full bg-[#2A2A2A] text-white border border-slate-700 rounded-xl px-4 py-3 mb-6 focus:outline-none focus:border-[#BF6B04]">
-            
+
             <p id="age-error" class="text-red-500 text-xs mb-4 hidden">Debes ser mayor de 18 años para ingresar.</p>
-            
+
             <div class="flex gap-4">
-                <button id="age-deny" class="flex-1 py-3 px-4 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition">Salir</button>
-                <button id="age-confirm" class="flex-1 py-3 px-4 rounded-xl bg-[#BF6B04] text-white font-bold hover:bg-[#A05A03] transition">Validar</button>
+                <button id="age-deny"
+                    class="flex-1 py-3 px-4 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition">Salir</button>
+                <button id="age-confirm"
+                    class="flex-1 py-3 px-4 rounded-xl bg-[#BF6B04] text-white font-bold hover:bg-[#A05A03] transition">Validar</button>
             </div>
         </div>
     </div>
