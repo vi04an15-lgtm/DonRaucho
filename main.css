@@ -79,9 +79,6 @@ main.menu-open-overlay {
     width: 100%;
     overflow: hidden;
     padding: 0.5rem 0;
-    /* Fix webkit bug: animated children can escape overflow:hidden without this */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
 }
 
 /* Fade edges */
@@ -108,9 +105,11 @@ main.menu-open-overlay {
 
 .marquee-inner {
     display: flex;
+    flex-wrap: nowrap;
     gap: 1.25rem;
     width: max-content;
     animation: marquee 32s linear infinite;
+    will-change: transform;
 }
 
 .marquee-inner:hover {
@@ -130,10 +129,6 @@ main.menu-open-overlay {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
     background: #141414;
-    /* Force GPU layer so overflow clips correctly on mobile webkit */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    isolation: isolate;
 }
 
 .marquee-item img {
