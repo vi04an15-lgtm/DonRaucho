@@ -31,12 +31,18 @@ main.menu-open-overlay {
 
 /* Hero title responsive sizing */
 .hero-title {
-    font-size: clamp(3rem, 13vw, 9rem);
+    font-size: clamp(4.5rem, 22vw, 9rem);
 }
 
 /* Tracking para Cinzel, equivalente al espaciado del logo */
 .hero-tracking {
     letter-spacing: 0.15em;
+}
+
+@media (max-width: 480px) {
+    .hero-tracking {
+        letter-spacing: 0.08em;
+    }
 }
 
 /* Scroll indicator line animation */
@@ -73,6 +79,9 @@ main.menu-open-overlay {
     width: 100%;
     overflow: hidden;
     padding: 0.5rem 0;
+    /* Fix webkit bug: animated children can escape overflow:hidden without this */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 /* Fade edges */
@@ -121,12 +130,17 @@ main.menu-open-overlay {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
     background: #141414;
+    /* Force GPU layer so overflow clips correctly on mobile webkit */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    isolation: isolate;
 }
 
 .marquee-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     opacity: 0.75;
     transition: opacity 0.4s ease, transform 0.5s ease;
 }
