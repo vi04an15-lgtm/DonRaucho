@@ -60,8 +60,71 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css?v=6">
+
+    <!-- Carrusel de productos: CSS inline para que nunca quede cacheado por separado -->
+    <style>
+        .mq-viewport {
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+        }
+        .mq-track {
+            display: flex;
+            flex-wrap: nowrap;
+            width: max-content;
+            animation: mq-scroll 70s linear infinite;
+        }
+        .mq-track:hover { animation-play-state: paused; }
+        @keyframes mq-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .mq-card {
+            flex: 0 0 auto;
+            width: 200px;
+            margin: 0 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .mq-img {
+            height: 230px;
+            background: #fff;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        }
+        .mq-img img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        .mq-name {
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+            padding: 0 4px;
+        }
+        @media (max-width: 768px) {
+            .mq-card { width: 150px; margin: 0 6px; }
+            .mq-img { height: 175px; padding: 12px; border-radius: 12px; }
+            .mq-name { font-size: 0.7rem; }
+            .mq-track { animation-duration: 55s; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .mq-track { animation: none; }
+        }
+    </style>
 </head>
 
 <body class="bg-[#0A0A0A] text-[#F0F0F0] font-sans antialiased">
@@ -228,20 +291,36 @@
                 <span class="inline-block px-3 py-1 rounded-full border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-4">Galería</span>
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-white">Nuestros Productos</h2>
             </div>
-            <div class="swiper galeria-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/blue.PNG" alt="Johnnie Walker Blue Label" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/casillero.JPG" alt="Casillero del Diablo" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/johnnie_black.jpg" alt="Johnnie Walker Black" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/whisky.JPG" alt="Whisky" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/wine_bottle.jpg" alt="Vino Premium" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/jacksinglebarrel.jpg" alt="Jack Daniel's Single Barrel" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/cocktail_pisco.jpg" alt="Pisco" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/whisky_bottle.jpg" alt="Whisky Premium" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/wine_red.jpg" alt="Vino Tinto" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/bourbon.jpg" alt="Bourbon" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/spirits_glass.jpg" alt="Spirits" loading="lazy"></div>
-                    <div class="swiper-slide galeria-slide"><img src="img/productos/carrusel/scotch.jpg" alt="Scotch Whisky" loading="lazy"></div>
+            <div class="mq-viewport">
+                <div class="mq-track">
+                    <!-- Set 1 -->
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_barrica.jpg" alt="Mistral Nobel Barrica Tostada" loading="lazy"></div><span class="mq-name">Mistral Nobel Barrica Tostada</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_clasico.jpg" alt="Mistral Nobel Clásico" loading="lazy"></div><span class="mq-name">Mistral Nobel Clásico</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_apple.jpg" alt="Mistral Nobel Apple" loading="lazy"></div><span class="mq-name">Mistral Nobel Apple</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_honey.jpg" alt="Mistral Nobel Honey" loading="lazy"></div><span class="mq-name">Mistral Nobel Honey</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_fire.jpg" alt="Mistral Nobel Fire" loading="lazy"></div><span class="mq-name">Mistral Nobel Fire</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_cristalino.jpg" alt="Mistral Nobel Cristalino" loading="lazy"></div><span class="mq-name">Mistral Nobel Cristalino</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_black.jpg" alt="Jack Daniel's Nº7" loading="lazy"></div><span class="mq-name">Jack Daniel's Nº7</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_honey.jpg" alt="Jack Daniel's Honey" loading="lazy"></div><span class="mq-name">Jack Daniel's Honey</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_apple.jpg" alt="Jack Daniel's Apple" loading="lazy"></div><span class="mq-name">Jack Daniel's Apple</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_fire.jpg" alt="Jack Daniel's Fire" loading="lazy"></div><span class="mq-name">Jack Daniel's Fire</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_negra.jpg" alt="Alto del Carmen Etiqueta Negra" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Negra</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_blanca.jpg" alt="Alto del Carmen Etiqueta Blanca" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Blanca</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_transparente.jpg" alt="Alto del Carmen Transparente" loading="lazy"></div><span class="mq-name">Alto del Carmen Transparente</span></div>
+                    <!-- Set 2 (duplicado para loop continuo) -->
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_barrica.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Barrica Tostada</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_clasico.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Clásico</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_apple.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Apple</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_honey.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Honey</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_fire.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Fire</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_cristalino.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Cristalino</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_black.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Nº7</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_honey.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Honey</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_apple.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Apple</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_fire.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Fire</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_negra.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Negra</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_blanca.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Blanca</span></div>
+                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_transparente.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Alto del Carmen Transparente</span></div>
                 </div>
             </div>
         </section>
@@ -385,9 +464,8 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=6"></script>
 </body>
 
 </html>

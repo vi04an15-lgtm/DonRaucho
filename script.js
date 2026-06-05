@@ -132,28 +132,9 @@ function initAgeVerification() {
     });
 }
 
-function initGaleria() {
-    if (typeof Swiper === 'undefined') return;
-    new Swiper('.galeria-swiper', {
-        loop: true,
-        speed: 3500,
-        autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-        },
-        slidesPerView: 'auto',
-        spaceBetween: 16,
-        grabCursor: true,
-        allowTouchMove: true,
-        freeMode: true,
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     initAgeVerification();
     initScrollAnimations();
-    initGaleria();
 
     let lenis = null;
     try {
