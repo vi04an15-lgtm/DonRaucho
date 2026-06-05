@@ -31,7 +31,7 @@ main.menu-open-overlay {
 
 /* Hero title responsive sizing */
 .hero-title {
-    font-size: clamp(4rem, 12vw, 9rem);
+    font-size: clamp(3rem, 13vw, 9rem);
 }
 
 /* Scroll indicator line animation */
@@ -144,16 +144,29 @@ main.menu-open-overlay {
    ============================================================ */
 @media (max-width: 768px) {
     #map-frame {
-        height: 300px;
+        height: 280px;
     }
 
     .marquee-item {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
+        border-radius: 12px;
     }
 
     .marquee-track::before,
     .marquee-track::after {
-        width: 60px;
+        width: 48px;
+    }
+
+    /* Reducir gap en historia mobile */
+    .marquee-inner {
+        gap: 0.75rem;
+    }
+}
+
+/* Historial: quitar text-justify en mobile para mejor legibilidad */
+@media (max-width: 640px) {
+    p {
+        text-align: left;
     }
 }
