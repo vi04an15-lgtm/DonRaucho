@@ -1,160 +1,150 @@
-/**
- * @file main.css
- * @description Hoja de estilos complementaria para Don Raucho Botillería.
- * @summary Este archivo contiene estilos personalizados que no son gestionados directamente por Tailwind CSS.
- *          Incluye configuraciones base, estilos para componentes específicos como el mapa de Leaflet,
- *          y ajustes de responsive. La mayoría de los estilos de la UI se manejan con utilidades de Tailwind en el HTML.
- */
-
-/* ==========================================================================
-   1. Estilos Base y Globales
-   ========================================================================== */
-
-/**
- * Se establece un scroll suave para toda la página al navegar mediante anclas.
- * El `min-height` en el body asegura que el footer se mantenga al fondo en páginas con poco contenido.
- */
+/* scroll-behavior manejado por Lenis */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 body {
     min-height: 100vh;
 }
 
-/**
- * Justifica el texto de todos los párrafos para una apariencia más limpia y ordenada,
- * especialmente en descripciones largas.
- */
-p {
-    text-align: justify;
+/* Navbar: transparent by default, solid on scroll */
+#navbar {
+    background: transparent;
 }
 
+#navbar.scrolled {
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
 
-/* ==========================================================================
-   2. Layout y Estructura Principal
-   ========================================================================== */
-
-/**
- * Estilos para el overlay del menú móvil.
- * Cuando el menú está abierto, el contenido principal (`main`) se oscurece y se deshabilitan
- * las interacciones para centrar el foco del usuario en la navegación.
- * La transición suave en el filtro (`filter`) proporciona un efecto visual agradable.
- */
+/* Mobile menu overlay */
 main {
     transition: filter 0.3s ease-in-out;
 }
 
 main.menu-open-overlay {
-    filter: brightness(0.5);
+    filter: brightness(0.3);
     pointer-events: none;
 }
 
+/* Hero title responsive sizing */
+.hero-title {
+    font-size: clamp(4rem, 12vw, 9rem);
+}
 
-/* ==========================================================================
-   3. Componentes Específicos
-   ========================================================================== */
+/* Scroll indicator line animation */
+@keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    60%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
 
+.scroll-line {
+    animation: scrollLine 2.4s ease-in-out infinite;
+}
 
+/* Scroll-triggered animations */
+.scroll-animate {
+    transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+}
 
-/**
- * Estilos para el contenedor del mapa de Leaflet.
- * Se define una altura fija y bordes redondeados para integrar el mapa
- * de forma cohesiva en el diseño de la tarjeta.
- */
-#map {
-    height: 500px;
+/* Map iframe */
+#map-frame {
+    height: 480px;
     width: 100%;
-    border-radius: 12px;
-    isolation: isolate;
-    /* Contiene los z-indexes de Leaflet para no sobrepasar el header */
-}
-
-/**
- * Estilos para los indicadores del carrusel.
- * Proporciona una base visual para los indicadores de diapositivas, con una
- * transición suave para el estado activo.
- */
-[data-carousel-slide-to] {
-    background-color: rgba(255, 255, 255, 0.5);
-    transition: background-color 0.3s ease;
-}
-
-[data-carousel-slide-to].bg-white {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-
-/* ==========================================================================
-   4. Efecto Desvanecido entre Secciones
-   ========================================================================== */
-
-/**
- * Divisores de gradiente colocados entre cada par de secciones.
- * Ajustados para eliminar la línea divisoria visible.
- */
-.section-divider {
-    height: 120px;
-    position: relative;
-    z-index: 5;
-    margin-top: -60px;
-    margin-bottom: -60px;
-    pointer-events: none;
-    backdrop-filter: blur(12px);
     border: none;
+    display: block;
 }
 
-
-/* Ofertas (blanco / #2A2A2A) → Destacados (slate-50 / #1A1A1A) */
-.divider-ofertas-destacados {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(248, 250, 252, 1));
+/* ============================================================
+   Marquee Gallery
+   ============================================================ */
+.marquee-track {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.5rem 0;
 }
 
-@media (prefers-color-scheme: dark) {
-    .divider-ofertas-destacados {
-        background: linear-gradient(to bottom, rgba(42, 42, 42, 0), rgba(18, 18, 18, 1));
-    }
+/* Fade edges */
+.marquee-track::before,
+.marquee-track::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 140px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* Destacados (slate-50 / #1A1A1A) → Carrusel (blanco / #2A2A2A) */
-.divider-destacados-carrusel {
-    background: linear-gradient(to bottom, rgba(248, 250, 252, 0), rgba(255, 255, 255, 1));
+.marquee-track::before {
+    left: 0;
+    background: linear-gradient(to right, #0A0A0A, transparent);
 }
 
-@media (prefers-color-scheme: dark) {
-    .divider-destacados-carrusel {
-        background: linear-gradient(to bottom, rgba(18, 18, 18, 0), rgba(42, 42, 42, 1));
-    }
+.marquee-track::after {
+    right: 0;
+    background: linear-gradient(to left, #0A0A0A, transparent);
 }
 
-/* Carrusel (blanco / #2A2A2A) → Ubicación (slate-50 / #1A1A1A) */
-.divider-carrusel-ubicacion {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(248, 250, 252, 1));
+.marquee-inner {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    animation: marquee 32s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-    .divider-carrusel-ubicacion {
-        background: linear-gradient(to bottom, rgba(42, 42, 42, 0), rgba(18, 18, 18, 1));
-    }
+.marquee-inner:hover {
+    animation-play-state: paused;
 }
 
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
-/* ==========================================================================
-   5. Media Queries y Diseño Responsivo
-   ========================================================================== */
+.marquee-item {
+    width: 280px;
+    height: 200px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #141414;
+}
 
-/**
- * Ajusta el tamaño de los encabezados principales en dispositivos móviles
- * para mejorar la legibilidad y la jerarquía visual en pantallas pequeñas.
- */
+.marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.marquee-item:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.25rem;
-        /* Tailwind's text-4xl */
+    #map-frame {
+        height: 300px;
     }
 
-    h2 {
-        font-size: 1.875rem;
-        /* Tailwind's text-3xl */
+    .marquee-item {
+        width: 210px;
+        height: 155px;
+    }
+
+    .marquee-track::before,
+    .marquee-track::after {
+        width: 60px;
     }
 }
