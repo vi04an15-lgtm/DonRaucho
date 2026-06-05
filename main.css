@@ -34,6 +34,11 @@ main.menu-open-overlay {
     font-size: clamp(3rem, 13vw, 9rem);
 }
 
+/* Tracking amplio para evocar el estilo del logo (Cinzel + espaciado) */
+.hero-tracking {
+    letter-spacing: 0.12em;
+}
+
 /* Scroll indicator line animation */
 @keyframes scrollLine {
     0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
