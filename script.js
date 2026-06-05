@@ -18,9 +18,15 @@ function initNavbar(lenis) {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
 
-    lenis.on('scroll', ({ scroll }) => {
-        navbar.classList.toggle('scrolled', scroll > 40);
-    });
+    if (lenis) {
+        lenis.on('scroll', ({ scroll }) => {
+            navbar.classList.toggle('scrolled', scroll > 40);
+        });
+    } else {
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
+    }
     navbar.classList.toggle('scrolled', window.scrollY > 40);
 }
 
@@ -38,10 +44,8 @@ function initMobileMenu(lenis) {
         menuToggle.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('hidden', isExpanded);
         mainContent.classList.toggle('menu-open-overlay', !isExpanded);
-        if (!isExpanded) {
-            lenis.stop();
-        } else {
-            lenis.start();
+        if (lenis) {
+            isExpanded ? lenis.start() : lenis.stop();
         }
     };
 
@@ -56,7 +60,11 @@ function initSmoothScroll(lenis) {
             const target = document.querySelector(href);
             if (href !== '#' && target) {
                 e.preventDefault();
-                lenis.scrollTo(target, { offset: -64, duration: 1.4 });
+                if (lenis) {
+                    lenis.scrollTo(target, { offset: -64, duration: 1.4 });
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         });
     });
@@ -73,7 +81,7 @@ function initScrollAnimations() {
                 obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     elements.forEach(el => observer.observe(el));
 }
@@ -122,10 +130,20 @@ function initAgeVerification() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Quitar clase no-js para desactivar el fallback CSS
+    document.body.classList.remove('no-js');
+
     initAgeVerification();
-    const lenis = initLenis();
+    initScrollAnimations();
+
+    let lenis = null;
+    try {
+        lenis = initLenis();
+    } catch (e) {
+        console.warn('Lenis no disponible, usando scroll nativo.', e);
+    }
+
     initNavbar(lenis);
     initMobileMenu(lenis);
     initSmoothScroll(lenis);
-    initScrollAnimations();
 });

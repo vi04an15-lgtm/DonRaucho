@@ -60,7 +60,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<body class="bg-[#0A0A0A] text-[#F0F0F0] font-sans antialiased">
+<body class="no-js bg-[#0A0A0A] text-[#F0F0F0] font-sans antialiased">
 
     <!-- NAVBAR -->
     <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
@@ -130,14 +130,17 @@
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
                     <div class="relative hidden md:block scroll-animate opacity-0 translate-y-6">
-                        <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-[#141414] border border-white/5">
-                            <img src="img/logoboti.webp" alt="Don Raucho Botillería" class="w-full h-full object-cover opacity-80">
+                        <div class="aspect-[3/4] rounded-3xl overflow-hidden">
+                            <img src="img/bar.webp" alt="Don Raucho Botillería" class="w-full h-full object-cover object-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                         </div>
-                        <div class="absolute -bottom-8 -right-8 w-44 h-44 rounded-3xl border border-primary/15 bg-primary/5 -z-10"></div>
-                        <div class="absolute -top-6 -left-6 w-20 h-20 rounded-full border border-white/10 -z-10"></div>
-                        <div class="absolute bottom-8 -right-4 bg-[#141414] border border-white/10 rounded-2xl px-5 py-4 shadow-2xl">
-                            <p class="font-display text-primary font-bold text-xl">Angol</p>
-                            <p class="text-white/40 text-xs">Araucanía, Chile</p>
+                        <!-- Decorative border behind -->
+                        <div class="absolute -bottom-5 -right-5 w-40 h-40 rounded-3xl border border-primary/20 bg-primary/5 -z-10"></div>
+                        <div class="absolute -top-5 -left-5 w-20 h-20 rounded-full border border-white/10 -z-10"></div>
+                        <!-- Floating info card inside image -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-4">
+                            <p class="font-display text-primary font-bold text-xl">Don Raucho</p>
+                            <p class="text-white/50 text-xs mt-0.5">Botillería · Angol, Araucanía</p>
                         </div>
                     </div>
                     <div class="scroll-animate opacity-0 translate-y-6">
@@ -263,7 +266,7 @@
                     <div class="md:col-span-3 rounded-2xl overflow-hidden border border-white/8 scroll-animate opacity-0 translate-y-6">
                         <iframe
                             id="map-frame"
-                            src="https://maps.google.com/maps?q=-37.81909289065312,-72.67175960064439&z=17&output=embed"
+                            src="https://maps.google.com/maps?q=Av.+Dillman+Bullock+3036,+Angol,+Chile&z=17&output=embed"
                             allowfullscreen
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"

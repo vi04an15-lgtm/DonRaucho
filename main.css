@@ -51,6 +51,15 @@ main.menu-open-overlay {
     transition: opacity 0.75s ease-out, transform 0.75s ease-out;
 }
 
+/* Si JS falla o Lenis crashea, mostrar todo después de 1.5s */
+.no-js .scroll-animate {
+    animation: jsFailsafe 0s 1.5s forwards;
+}
+
+@keyframes jsFailsafe {
+    to { opacity: 1; transform: none; }
+}
+
 /* Map iframe */
 #map-frame {
     height: 480px;
@@ -108,8 +117,8 @@ main.menu-open-overlay {
 }
 
 .marquee-item {
-    width: 280px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
     flex-shrink: 0;
     border-radius: 16px;
     overflow: hidden;
@@ -139,8 +148,8 @@ main.menu-open-overlay {
     }
 
     .marquee-item {
-        width: 210px;
-        height: 155px;
+        width: 180px;
+        height: 180px;
     }
 
     .marquee-track::before,
