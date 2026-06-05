@@ -51,14 +51,6 @@ main.menu-open-overlay {
     transition: opacity 0.75s ease-out, transform 0.75s ease-out;
 }
 
-/* Si JS falla o Lenis crashea, mostrar todo después de 1.5s */
-.no-js .scroll-animate {
-    animation: jsFailsafe 0s 1.5s forwards;
-}
-
-@keyframes jsFailsafe {
-    to { opacity: 1; transform: none; }
-}
 
 /* Map iframe */
 #map-frame {

@@ -74,14 +74,17 @@ function initScrollAnimations() {
     const elements = document.querySelectorAll('.scroll-animate');
     if (!elements.length) return;
 
+    // Estado inicial vía JS: si JS no carga, los elementos son visibles por defecto
+    elements.forEach(el => el.classList.add('opacity-0', 'translate-y-6'));
+
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.remove('opacity-0', 'translate-y-6', 'translate-y-4');
+                entry.target.classList.remove('opacity-0', 'translate-y-6');
                 obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
 
     elements.forEach(el => observer.observe(el));
 }
@@ -130,9 +133,6 @@ function initAgeVerification() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Quitar clase no-js para desactivar el fallback CSS
-    document.body.classList.remove('no-js');
-
     initAgeVerification();
     initScrollAnimations();
 
