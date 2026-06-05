@@ -72,67 +72,32 @@ main.menu-open-overlay {
 }
 
 /* ============================================================
-   Marquee Gallery — JS-driven (requestAnimationFrame)
-   inline-block approach: works on all mobile browsers
+   Galería — Swiper.js
    ============================================================ */
-.marquee-track {
-    position: relative;
+.galeria-swiper {
     width: 100%;
-    overflow: hidden;
     padding: 0.5rem 0;
 }
 
-.marquee-track::before,
-.marquee-track::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 120px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.marquee-track::before {
-    left: 0;
-    background: linear-gradient(to right, #0A0A0A, transparent);
-}
-
-.marquee-track::after {
-    right: 0;
-    background: linear-gradient(to left, #0A0A0A, transparent);
-}
-
-/* white-space:nowrap guarantees single row on every browser/device */
-.marquee-inner {
-    display: block;
-    white-space: nowrap;
-    will-change: transform;
-    line-height: 0;
-}
-
-.marquee-item {
-    display: inline-block;
-    vertical-align: top;
-    width: 220px;
+.galeria-slide {
+    width: 220px !important;
     height: 220px;
-    margin-right: 1rem;
     border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
     background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.marquee-item img {
+.galeria-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0.8;
+    opacity: 0.82;
     transition: opacity 0.4s ease;
 }
 
-.marquee-item:hover img {
+.galeria-slide:hover img {
     opacity: 1;
 }
 
@@ -144,16 +109,10 @@ main.menu-open-overlay {
         height: 280px;
     }
 
-    .marquee-item {
-        width: 150px;
+    .galeria-slide {
+        width: 150px !important;
         height: 150px;
-        margin-right: 0.75rem;
         border-radius: 10px;
-    }
-
-    .marquee-track::before,
-    .marquee-track::after {
-        width: 40px;
     }
 }
 

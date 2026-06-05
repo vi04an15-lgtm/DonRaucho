@@ -132,40 +132,28 @@ function initAgeVerification() {
     });
 }
 
-function initMarquee() {
-    const inner = document.querySelector('.marquee-inner');
-    const track = document.querySelector('.marquee-track');
-    if (!inner || !track) return;
-
-    let pos = 0;
-    let paused = false;
-    const speed = 0.8;
-
-    track.addEventListener('mouseenter', () => { paused = true; });
-    track.addEventListener('mouseleave', () => { paused = false; });
-
-    function getHalfWidth() {
-        // scrollWidth = both duplicate sets; half = one set
-        return inner.scrollWidth / 2;
-    }
-
-    function tick() {
-        if (!paused) {
-            pos -= speed;
-            const half = getHalfWidth();
-            if (half > 0 && -pos >= half) pos = 0;
-            inner.style.transform = 'translateX(' + pos + 'px)';
-        }
-        requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
+function initGaleria() {
+    if (typeof Swiper === 'undefined') return;
+    new Swiper('.galeria-swiper', {
+        loop: true,
+        speed: 3500,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        grabCursor: true,
+        allowTouchMove: true,
+        freeMode: true,
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     initAgeVerification();
     initScrollAnimations();
-    initMarquee();
+    initGaleria();
 
     let lenis = null;
     try {
