@@ -34,9 +34,9 @@ main.menu-open-overlay {
     font-size: clamp(3rem, 13vw, 9rem);
 }
 
-/* Tracking que replica el espaciado del logo (Josefin Sans) */
+/* Tracking para Cinzel, equivalente al espaciado del logo */
 .hero-tracking {
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
 }
 
 /* Scroll indicator line animation */
