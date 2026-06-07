@@ -1,471 +1,275 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Don Raucho Botilleria</title>
-    <meta name="description" content="Don Raucho Botilleria, la mejor selección de licores, vinos y cervezas en Angol. Visítanos y descubre nuestras ofertas.">
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="apple-touch-icon" href="img/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Don Raucho Botillería — La mejor selección de licores, whiskies y vinos finos en Angol, Araucanía.">
+  <title>Don Raucho · Botillería Premium · Angol</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="./img/bar.webp" as="image">
-    <link rel="preload" href="img/logo.png" as="image">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LiquorStore",
-      "name": "Don Raucho Botilleria",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Dilman Bullock 3036",
-        "addressLocality": "Angol",
-        "addressRegion": "Araucanía",
-        "postalCode": "4652376",
-        "addressCountry": "CL"
-      },
-      "telephone": "+56997734109",
-      "openingHoursSpecification": [
-        {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],"opens": "10:00","closes": "24:00"},
-        {"@type": "OpeningHoursSpecification","dayOfWeek": "Sunday","opens": "11:00","closes": "23:00"},
-        {"@type": "OpeningHoursSpecification","dayOfWeek": ["Friday","Saturday"],"opens": "10:00","closes": "01:00"}
-      ],
-      "image": "https://donraucho.cl/img/logo.png",
-      "url": "https://donraucho.cl"
-    }
-    </script>
+  <!-- Preload críticos -->
+  <link rel="preload" href="img/bar.webp" as="image">
+  <link rel="preload" href="img/logo.png" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Config DEBE ir antes del CDN para que las clases custom se generen -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#BF6B04",
-                        "primary-dark": "#A05A03",
-                    },
-                    fontFamily: {
-                        display: ["Playfair Display", "serif"],
-                        brand: ["Cinzel", "serif"],
-                        sans: ["Inter", "sans-serif"],
-                    },
-                },
-            },
-        };
-    </script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+  <link rel="stylesheet" href="donraucho.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css?v=6">
-
-    <!-- Carrusel de productos: CSS inline para que nunca quede cacheado por separado -->
-    <style>
-        .mq-viewport {
-            width: 100%;
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-        }
-        .mq-track {
-            display: flex;
-            flex-wrap: nowrap;
-            width: max-content;
-            animation: mq-scroll 70s linear infinite;
-        }
-        .mq-track:hover { animation-play-state: paused; }
-        @keyframes mq-scroll {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
-        .mq-card {
-            flex: 0 0 auto;
-            width: 200px;
-            margin: 0 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .mq-img {
-            height: 230px;
-            background: #fff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-        }
-        .mq-img img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
-        .mq-name {
-            text-align: center;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 0.02em;
-            line-height: 1.3;
-            padding: 0 4px;
-        }
-        @media (max-width: 768px) {
-            .mq-card { width: 150px; margin: 0 6px; }
-            .mq-img { height: 175px; padding: 12px; border-radius: 12px; }
-            .mq-name { font-size: 0.7rem; }
-            .mq-track { animation-duration: 55s; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .mq-track { animation: none; }
-        }
-    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LiquorStore",
+    "name": "Don Raucho Botillería",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dilman Bullock 3036",
+      "addressLocality": "Angol",
+      "addressRegion": "Araucanía",
+      "postalCode": "4652376",
+      "addressCountry": "CL"
+    },
+    "telephone": "+56997734109",
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"10:00","closes":"24:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"10:00","closes":"01:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"11:00","closes":"23:00"}
+    ],
+    "url": "https://donraucho.cl"
+  }
+  </script>
 </head>
+<body>
 
-<body class="bg-[#0A0A0A] text-[#F0F0F0] font-sans antialiased">
+<!-- AGE GATE ══════════════════════════════════════════ -->
+<div class="age-gate" id="age-gate">
+  <div class="age-box">
+    <img class="age-logo" src="img/logo.png" alt="Don Raucho">
+    <h2 class="age-h">Verificación de Edad</h2>
+    <p class="age-p">Para acceder a nuestro sitio debes ser<br>mayor de 18 años.</p>
+    <div class="age-btns">
+      <button class="age-y" id="age-yes">Tengo 18 o más</button>
+      <a href="https://google.cl" class="age-n">Salir</a>
+    </div>
+    <p class="age-legal">Bebe con responsabilidad · Solo mayores de 18 años</p>
+  </div>
+</div>
 
-    <!-- NAVBAR -->
-    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img alt="Don Raucho Logo" class="h-8 w-8 object-contain rounded" src="img/logo.jpg">
-                <span class="font-brand font-normal text-base uppercase tracking-widest text-white">DON RAUCHO</span>
+<!-- NAV ════════════════════════════════════════════════ -->
+<nav>
+  <a href="#hero" class="nav-brand">
+    <img src="img/logo.png" alt="Don Raucho">
+    <span class="nav-name">DON RAUCHO</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#historia">Historia</a></li>
+    <li><a href="#galeria">Selección</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">☰</button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#historia">Historia</a>
+  <a href="#galeria">Selección</a>
+  <a href="#ubicacion">Ubicación</a>
+  <a href="tel:+56997734109">+56 9 9773 4109</a>
+</div>
+
+<!-- HERO ═══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-body">
+    <p class="hero-label">BOTILLERÍA PREMIUM · ANGOL, CHILE</p>
+    <h1 class="hero-h1">Don<br><em>Raucho</em></h1>
+    <p class="hero-sub">La mejor selección de licores,<br>whiskies y vinos finos en Angol</p>
+    <div class="hero-ctas">
+      <a href="#galeria" class="btn-p">Ver Selección</a>
+      <a href="#ubicacion" class="btn-o">Cómo Llegar</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- HISTORIA ════════════════════════════════════════════ -->
+<section class="historia" id="historia">
+  <div class="wrap">
+    <span class="s-label reveal">NUESTRA HISTORIA</span>
+    <h2 class="s-title reveal d1">Un legado de<br><em>integridad</em></h2>
+    <div class="rule reveal d2"></div>
+    <p class="hist-body reveal d2">
+      Nuestro nombre nació como un homenaje en vida a un hombre de principios
+      inquebrantables, profundamente querido y respetado por todos. Don Raucho
+      siempre fue el pilar de su familia, alguien que trabajó incansablemente
+      por el bienestar de los suyos.
+    </p>
+    <p class="hist-body reveal d3">
+      Hoy, aunque ya no nos acompaña físicamente, su esencia sigue presente
+      en cada rincón de nuestra botillería. Honramos su memoria y su legado
+      de integridad.
+    </p>
+    <div class="hist-stats">
+      <div class="reveal d1">
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">PRODUCTOS AUTÉNTICOS</div>
+      </div>
+      <div class="reveal d2">
+        <div class="stat-val">Premium</div>
+        <div class="stat-lbl">SELECCIÓN DE LICORES</div>
+      </div>
+      <div class="reveal d3">
+        <div class="stat-val">Angol</div>
+        <div class="stat-lbl">ARAUCANÍA, CHILE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA ════════════════════════════════════════════ -->
+<section class="galeria" id="galeria">
+  <div class="wrap gal-head">
+    <span class="s-label reveal">SELECCIÓN</span>
+    <h2 class="s-title reveal d1">Nuestros<br><em>Productos</em></h2>
+  </div>
+  <div id="carousel-track" class="carousel-track"></div>
+  <div class="gal-controls">
+    <button class="c-btn" id="c-prev" aria-label="Anterior">←</button>
+    <div class="c-dots" id="c-dots"></div>
+    <button class="c-btn" id="c-next" aria-label="Siguiente">→</button>
+  </div>
+</section>
+
+<!-- UBICACIÓN ══════════════════════════════════════════ -->
+<section class="ubicacion" id="ubicacion">
+  <div class="wrap">
+    <div class="ubic-grid">
+
+      <div>
+        <span class="s-label reveal">UBICACIÓN</span>
+        <h2 class="s-title reveal d1">Visítanos<br>en <em>Angol</em></h2>
+        <div class="info-list">
+
+          <div class="reveal d1">
+            <div class="info-lbl">DIRECCIÓN</div>
+            <div class="info-val">
+              Dilman Bullock 3036<br>Angol, Araucanía · 4652376
             </div>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#origen" class="text-sm text-white/60 hover:text-primary transition-colors">Historia</a>
-                <a href="#destacados" class="text-sm text-white/60 hover:text-primary transition-colors">Selección</a>
-                <a href="#ubicacion" class="text-sm text-white/60 hover:text-primary transition-colors">Ubicación</a>
-            </nav>
-            <button id="menu-toggle" class="md:hidden text-white" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+          </div>
+
+          <div class="reveal d2">
+            <div class="info-lbl">HORARIO</div>
+            <div class="info-val">
+              <div class="hrs">
+                <span class="d">Lun – Jue</span><span class="t">10:00 – 00:00</span>
+                <span class="d">Vie – Sáb</span><span class="t">10:00 – 01:00</span>
+                <span class="d">Domingo</span><span class="t">11:00 – 23:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal d3">
+            <div class="info-lbl">TELÉFONO</div>
+            <div class="info-val">
+              <a href="tel:+56997734109">+56 9 9773 4109</a>
+            </div>
+          </div>
+
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-[#0A0A0A]/98 backdrop-blur-xl border-b border-white/10 md:hidden z-40">
-            <div class="px-6 py-8 flex flex-col gap-6">
-                <a href="#origen" class="text-lg font-medium text-white hover:text-primary transition-colors">Historia</a>
-                <a href="#destacados" class="text-lg font-medium text-white hover:text-primary transition-colors">Selección</a>
-                <a href="#ubicacion" class="text-lg font-medium text-white hover:text-primary transition-colors">Ubicación</a>
-                <a href="tel:+56997734109" class="text-lg font-semibold text-primary">+56 9 9773 4109</a>
-            </div>
+        <a href="https://maps.app.goo.gl/npoUnvHpCSmgpfev5"
+           target="_blank" rel="noopener" class="gmap-link reveal d4">
+          ↗ Abrir en Google Maps
+        </a>
+      </div>
+
+      <div class="reveal d2">
+        <div class="map-box">
+          <iframe
+            src="https://maps.google.com/maps?q=-37.81909289065312,-72.67175960064439&z=16&output=embed"
+            title="Ubicación Don Raucho"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
         </div>
-    </header>
+      </div>
 
-    <main>
+    </div>
+  </div>
+</section>
 
-        <!-- HERO -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0">
-                <img src="./img/bar.webp" alt="" class="w-full h-full object-cover" fetchpriority="high">
-                <div class="absolute inset-0 bg-black/60"></div>
-                <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0A0A0A]"></div>
-            </div>
-            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16">
-                <img src="img/logo.png" alt="Don Raucho Logo" class="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-8 opacity-90">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest mb-8">
-                    <span>Botillería Premium</span>
-                    <span class="opacity-50">·</span>
-                    <span>Angol, Chile</span>
-                </div>
-                <h1 class="font-brand font-normal text-white uppercase leading-none mb-6 hero-title hero-tracking">
-                    Don<br><span class="text-primary">Raucho</span>
-                </h1>
-                <p class="text-white/55 text-lg max-w-sm mx-auto mb-10">La mejor selección de licores, whiskies y vinos finos en Angol.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#destacados" class="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/30">
-                        Ver Selección
-                    </a>
-                    <a href="#ubicacion" class="px-8 py-4 border border-white/25 text-white font-semibold rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                        Cómo Llegar
-                    </a>
-                </div>
-            </div>
-            <!-- Scroll indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
-                <span class="text-xs tracking-[0.2em] uppercase">Scroll</span>
-                <div class="w-px h-12 bg-gradient-to-b from-white/40 to-transparent scroll-line"></div>
-            </div>
-        </section>
+<!-- FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="ft-grid">
 
-        <!-- HISTORIA -->
-        <section id="origen" class="py-16 md:py-32 px-6 bg-[#0A0A0A]">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
-                    <div class="relative hidden md:block scroll-animate">
-                        <div class="relative aspect-[3/4] rounded-3xl overflow-hidden">
-                            <img src="img/bar.webp" alt="Don Raucho Botillería" class="w-full h-full object-cover object-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        </div>
-                        <!-- Decorative border behind -->
-                        <div class="absolute -bottom-5 -right-5 w-40 h-40 rounded-3xl border border-primary/20 bg-primary/5 -z-10"></div>
-                        <div class="absolute -top-5 -left-5 w-20 h-20 rounded-full border border-white/10 -z-10"></div>
-                        <!-- Floating info card inside image -->
-                        <div class="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-4">
-                            <p class="font-brand text-primary font-normal text-xl uppercase tracking-widest">Don Raucho</p>
-                            <p class="text-white/50 text-xs mt-0.5">Botillería · Angol, Araucanía</p>
-                        </div>
-                    </div>
-                    <div class="scroll-animate opacity-0 translate-y-6">
-                        <span class="inline-block px-3 py-1 rounded-full border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-6">Nuestra Historia</span>
-                        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-                            Un legado de<br><em class="text-primary not-italic">integridad</em>
-                        </h2>
-                        <p class="text-white/55 leading-relaxed mb-5 text-justify">
-                            Nuestro nombre nació como un homenaje en vida a un hombre de principios inquebrantables, profundamente querido y respetado por todos. Don Raucho siempre fue el pilar de su familia, alguien que trabajó incansablemente por el bienestar de los suyos.
-                        </p>
-                        <p class="text-white/55 leading-relaxed text-justify">
-                            Hoy, aunque ya no nos acompaña físicamente, su esencia sigue presente en cada rincón de nuestra botillería. Honramos su memoria y su legado de integridad.
-                        </p>
-                        <div class="mt-10 pt-10 border-t border-white/8 grid grid-cols-2 gap-6">
-                            <div>
-                                <p class="font-display text-4xl font-bold text-primary">100%</p>
-                                <p class="text-white/40 text-sm mt-1">Productos auténticos</p>
-                            </div>
-                            <div>
-                                <p class="font-display text-4xl font-bold text-primary">Premium</p>
-                                <p class="text-white/40 text-sm mt-1">Selección de licores</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SELECCIÓN DESTACADA -->
-        <section id="destacados" class="py-16 md:py-32 px-6 bg-[#0D0D0D]">
-            <div class="max-w-7xl mx-auto">
-                <div class="mb-10 md:mb-16 scroll-animate">
-                    <span class="inline-block px-3 py-1 rounded-full border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-4">Licores Premium</span>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white">Nuestra Selección</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-                    <div class="group bg-[#141414] rounded-2xl overflow-hidden border border-white/5 hover:border-primary/25 transition-all duration-500 hover:-translate-y-1.5 scroll-animate">
-                        <div class="relative h-72 overflow-hidden bg-[#0A0A0A]">
-                            <img src="img/productos/jackdaniels.webp" alt="Jack Daniel's"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/10 to-transparent"></div>
-                        </div>
-                        <div class="p-6 pt-5">
-                            <h3 class="font-display text-xl font-bold text-white mb-2">Jack Daniel's</h3>
-                            <p class="text-white/45 text-sm leading-relaxed">Old No. 7 – El clásico entre los clásicos. El whiskey americano más vendido del mundo.</p>
-                        </div>
-                    </div>
-
-                    <div class="group bg-[#141414] rounded-2xl overflow-hidden border border-white/5 hover:border-primary/25 transition-all duration-500 hover:-translate-y-1.5 scroll-animate" style="transition-delay:80ms">
-                        <div class="relative h-72 overflow-hidden bg-[#0A0A0A]">
-                            <img src="img/productos/dalmore3.webp" alt="The Dalmore"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/10 to-transparent"></div>
-                        </div>
-                        <div class="p-6 pt-5">
-                            <h3 class="font-display text-xl font-bold text-white mb-2">The Dalmore</h3>
-                            <p class="text-white/45 text-sm leading-relaxed">18 Years – El estándar de oro de las Highlands. Una herencia de excelencia desde 1839.</p>
-                        </div>
-                    </div>
-
-                    <div class="group bg-[#141414] rounded-2xl overflow-hidden border border-white/5 hover:border-primary/25 transition-all duration-500 hover:-translate-y-1.5 scroll-animate" style="transition-delay:160ms">
-                        <div class="relative h-72 overflow-hidden bg-[#0A0A0A]">
-                            <img src="img/productos/bluelabel.webp" alt="Blue Label"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/10 to-transparent"></div>
-                        </div>
-                        <div class="p-6 pt-5">
-                            <h3 class="font-display text-xl font-bold text-white mb-2">Blue Label</h3>
-                            <p class="text-white/45 text-sm leading-relaxed">El whisky escocés más reconocido del mundo. Calidad y sabor premium en cada sorbo.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- GALERÍA (auto-scroll marquee) -->
-        <section class="py-12 md:py-24 bg-[#0A0A0A] overflow-hidden">
-            <div class="mb-8 md:mb-12 px-6 max-w-7xl mx-auto scroll-animate">
-                <span class="inline-block px-3 py-1 rounded-full border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-4">Galería</span>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white">Nuestros Productos</h2>
-            </div>
-            <div class="mq-viewport">
-                <div class="mq-track">
-                    <!-- Set 1 -->
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_barrica.jpg" alt="Mistral Nobel Barrica Tostada" loading="lazy"></div><span class="mq-name">Mistral Nobel Barrica Tostada</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_clasico.jpg" alt="Mistral Nobel Clásico" loading="lazy"></div><span class="mq-name">Mistral Nobel Clásico</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_apple.jpg" alt="Mistral Nobel Apple" loading="lazy"></div><span class="mq-name">Mistral Nobel Apple</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_honey.jpg" alt="Mistral Nobel Honey" loading="lazy"></div><span class="mq-name">Mistral Nobel Honey</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_fire.jpg" alt="Mistral Nobel Fire" loading="lazy"></div><span class="mq-name">Mistral Nobel Fire</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_cristalino.jpg" alt="Mistral Nobel Cristalino" loading="lazy"></div><span class="mq-name">Mistral Nobel Cristalino</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_black.jpg" alt="Jack Daniel's Nº7" loading="lazy"></div><span class="mq-name">Jack Daniel's Nº7</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_honey.jpg" alt="Jack Daniel's Honey" loading="lazy"></div><span class="mq-name">Jack Daniel's Honey</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_apple.jpg" alt="Jack Daniel's Apple" loading="lazy"></div><span class="mq-name">Jack Daniel's Apple</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_fire.jpg" alt="Jack Daniel's Fire" loading="lazy"></div><span class="mq-name">Jack Daniel's Fire</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_negra.jpg" alt="Alto del Carmen Etiqueta Negra" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Negra</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_blanca.jpg" alt="Alto del Carmen Etiqueta Blanca" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Blanca</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_transparente.jpg" alt="Alto del Carmen Transparente" loading="lazy"></div><span class="mq-name">Alto del Carmen Transparente</span></div>
-                    <!-- Set 2 (duplicado para loop continuo) -->
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_barrica.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Barrica Tostada</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_clasico.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Clásico</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_apple.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Apple</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_honey.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Honey</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_fire.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Fire</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/mistral_cristalino.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Mistral Nobel Cristalino</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_black.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Nº7</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_honey.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Honey</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_apple.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Apple</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/jack_fire.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Jack Daniel's Fire</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_negra.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Negra</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_blanca.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Alto del Carmen Etiqueta Blanca</span></div>
-                    <div class="mq-card"><div class="mq-img"><img src="img/productos/carrusel/licores/altodelcarmen_transparente.jpg" alt="" aria-hidden="true" loading="lazy"></div><span class="mq-name">Alto del Carmen Transparente</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- UBICACIÓN -->
-        <section id="ubicacion" class="py-16 md:py-32 px-6 bg-[#0D0D0D]">
-            <div class="max-w-7xl mx-auto">
-                <div class="mb-10 md:mb-16 scroll-animate">
-                    <span class="inline-block px-3 py-1 rounded-full border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-4">Ubicación</span>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white">Visítanos</h2>
-                </div>
-                <div class="grid md:grid-cols-5 gap-6 items-start">
-                    <!-- Map iframe -->
-                    <div class="md:col-span-3 rounded-2xl overflow-hidden border border-white/8 scroll-animate">
-                        <iframe
-                            id="map-frame"
-                            src="https://maps.google.com/maps?q=-37.81909289065312,-72.67175960064439&z=18&output=embed"
-                            allowfullscreen
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Ubicación Don Raucho Botillería">
-                        </iframe>
-                    </div>
-                    <!-- Info panel -->
-                    <div class="md:col-span-2 flex flex-col gap-4 scroll-animate">
-                        <div class="bg-[#141414] rounded-2xl p-6 border border-white/5">
-                            <div class="flex items-center gap-3 mb-3">
-                                <span class="material-symbols-outlined text-primary text-xl">location_on</span>
-                                <h3 class="font-semibold text-white text-sm">Dirección</h3>
-                            </div>
-                            <p class="text-white/45 text-sm leading-relaxed">Dilman Bullock 3036<br>Angol, Araucanía · 4652376</p>
-                        </div>
-                        <div class="bg-[#141414] rounded-2xl p-6 border border-white/5">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="material-symbols-outlined text-primary text-xl">schedule</span>
-                                <h3 class="font-semibold text-white text-sm">Horario</h3>
-                            </div>
-                            <ul class="text-sm space-y-2.5">
-                                <li class="flex justify-between text-white/45">
-                                    <span>Lun – Jue</span><span class="text-white/70 font-medium">10:00 – 24:00</span>
-                                </li>
-                                <li class="flex justify-between text-white/45">
-                                    <span>Vie – Sáb</span><span class="text-white/70 font-medium">10:00 – 01:00</span>
-                                </li>
-                                <li class="flex justify-between text-white/45">
-                                    <span>Domingo</span><span class="text-white/70 font-medium">11:00 – 23:00</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="bg-[#141414] rounded-2xl p-6 border border-white/5">
-                            <div class="flex items-center gap-3 mb-3">
-                                <span class="material-symbols-outlined text-primary text-xl">phone</span>
-                                <h3 class="font-semibold text-white text-sm">Teléfono</h3>
-                            </div>
-                            <a href="tel:+56997734109" class="text-white/45 text-sm hover:text-primary transition-colors">+56 9 9773 4109</a>
-                        </div>
-                        <a href="https://maps.app.goo.gl/npoUnvHpCSmgpfev5" target="_blank" rel="noopener noreferrer"
-                            class="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-primary/20 text-sm">
-                            <span class="material-symbols-outlined text-lg">map</span>
-                            Abrir en Google Maps
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#060606] border-t border-white/5 text-white py-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <img alt="Don Raucho Logo" class="h-8 w-8 object-contain rounded" src="img/logo.jpg">
-                        <span class="font-brand font-normal text-base uppercase tracking-widest text-white">DON RAUCHO</span>
-                    </div>
-                    <p class="text-white/35 text-sm mb-6 leading-relaxed">La mejor selección de licores en Angol.</p>
-                    <div class="flex gap-3">
-                        <a href="https://www.instagram.com/botilleriadonraucho/" title="Instagram" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/35 hover:text-white hover:border-white/30 transition-all duration-300">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919A48.347 48.347 0 0112 2.163zm0 1.441c-3.117 0-3.482.01-4.71.068-2.83.129-4.124 1.423-4.253 4.253-.058 1.227-.068 1.582-.068 4.71s.01 3.482.068 4.71c.13 2.83 1.424 4.123 4.253 4.253 1.228.058 1.593.068 4.71.068 3.118 0 3.482-.01 4.71-.068 2.83-.13 4.124-1.423 4.253-4.253.058-1.227.068-1.582.068-4.71s-.01-3.482-.068-4.71c-.13-2.83-1.424-4.123-4.253-4.253-1.228-.058-1.593.068-4.71-.068zm0 5.838a3.532 3.532 0 100 7.064 3.532 3.532 0 000-7.064zm0 5.622a2.088 2.088 0 110-4.176 2.088 2.088 0 010 4.176zm4.965-6.796a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.facebook.com/donraucho.botilleria" title="Facebook" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/35 hover:text-white hover:border-white/30 transition-all duration-300">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Horario de Atención</h4>
-                    <ul class="text-sm text-white/35 space-y-2.5">
-                        <li class="flex justify-between"><span>Lun – Jue</span><span>10:00 – 24:00</span></li>
-                        <li class="flex justify-between"><span>Vie – Sáb</span><span>10:00 – 01:00</span></li>
-                        <li class="flex justify-between"><span>Domingo</span><span>11:00 – 23:00</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Contacto</h4>
-                    <ul class="text-sm text-white/35 space-y-2.5">
-                        <li><a href="tel:+56997734109" class="hover:text-white transition-colors">+56 9 9773 4109</a></li>
-                        <li>Dilman Bullock 3036</li>
-                        <li>Angol, Araucanía</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/20">
-                <p>© 2026 Don Raucho Botilleria. Todos los derechos reservados.</p>
-                <p>Solo para mayores de 18 años. Bebe con responsabilidad.</p>
-            </div>
+    <div>
+      <div class="ft-brand">
+        <img src="img/logo.png" alt="Don Raucho">
+        <div>
+          <div class="ft-bname">DON RAUCHO</div>
+          <p class="ft-tag">La mejor selección de licores en Angol.<br>Un legado de integridad.</p>
         </div>
-    </footer>
-
-    <!-- WhatsApp FAB -->
-    <a href="https://wa.me/56997734109" target="_blank" rel="noopener noreferrer"
-        class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center bg-[#25D366] shadow-2xl shadow-black/40 hover:scale-110 transition-transform duration-300"
-        title="Contactar por WhatsApp">
-        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.112 1.522 5.841L.057 23.882l6.197-1.623A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.876 9.876 0 01-5.032-1.381l-.361-.214-3.735.979.996-3.648-.235-.374A9.861 9.861 0 012.107 12C2.107 6.53 6.53 2.107 12 2.107S21.893 6.53 21.893 12 17.47 21.894 12 21.894z"/>
-        </svg>
-    </a>
-
-    <!-- Age Verification Modal -->
-    <div id="age-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md" style="display: none;">
-        <div class="bg-[#141414] border border-white/10 p-6 rounded-2xl max-w-sm w-full text-center shadow-2xl">
-            <img src="img/logo.png" alt="Logo Don Raucho" class="w-16 h-16 object-contain mx-auto mb-6 opacity-80">
-            <h2 class="font-display text-2xl font-bold text-white mb-2">Verificación de Edad</h2>
-            <p class="text-white/40 text-sm mb-6">Ingresa tu fecha de nacimiento para continuar.</p>
-            <input type="date" id="birthdate"
-                class="w-full bg-[#1E1E1E] text-white border border-white/10 rounded-xl px-4 py-3 mb-4 focus:outline-none focus:border-primary transition-colors">
-            <p id="age-error" class="text-red-400 text-xs mb-4 hidden">Debes ser mayor de 18 años para ingresar.</p>
-            <div class="flex gap-3">
-                <button id="age-deny" class="flex-1 py-3 px-4 rounded-xl border border-white/10 text-white/45 hover:bg-white/5 transition-all text-sm">Salir</button>
-                <button id="age-confirm" class="flex-1 py-3 px-4 rounded-xl bg-primary text-white font-semibold hover:bg-primary-dark transition-all text-sm">Confirmar</button>
-            </div>
-        </div>
+      </div>
+      <div class="ft-social">
+        <a href="https://www.instagram.com/botilleriadonraucho/" target="_blank" rel="noopener" class="soc" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/donraucho.botilleria" target="_blank" rel="noopener" class="soc" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/56997734109" target="_blank" rel="noopener" class="soc" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+        </a>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-    <script src="script.js?v=6"></script>
-</body>
+    <div>
+      <div class="ft-col-lbl">HORARIO DE ATENCIÓN</div>
+      <div class="ft-hrs">
+        <span class="d">Lun – Jue</span><span class="t">10:00 – 00:00</span>
+        <span class="d">Vie – Sáb</span><span class="t">10:00 – 01:00</span>
+        <span class="d">Domingo</span><span class="t">11:00 – 23:00</span>
+      </div>
+    </div>
 
+    <div>
+      <div class="ft-col-lbl">CONTACTO</div>
+      <div class="ft-contact">
+        <a href="tel:+56997734109">+56 9 9773 4109</a>
+        <span>Dilman Bullock 3036</span>
+        <span>Angol, Araucanía</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Don Raucho Botillería · Todos los derechos reservados</span>
+    <span>Solo para mayores de 18 años · Bebe con responsabilidad</span>
+  </div>
+</footer>
+
+<!-- TWEAKS PANEL (solo visible en desktop vía postMessage) -->
+<div id="tweaks">
+  <div class="tw-title">VARIACIONES</div>
+  <div class="tw-lbl">Tema de color</div>
+  <div class="tw-opts">
+    <button class="tw-btn on" data-t="default"><span class="swatch" style="background:#c49040"></span>Oscuro Dorado</button>
+    <button class="tw-btn" data-t="crema"><span class="swatch" style="background:#8b4018"></span>Crema Artisanal</button>
+    <button class="tw-btn" data-t="carbon"><span class="swatch" style="background:#d4a845"></span>Noche Carbón</button>
+  </div>
+</div>
+
+<script src="donraucho.js"></script>
+</body>
 </html>
