@@ -1,30 +1,27 @@
 /* ─── PRODUCTS ────────────────────────────────────────── */
 const PRODUCTS = [
   // Piscos Mistral
-  { img: 'img/productos/carrusel/licores/nobelclasico.webp',  name: 'Mistral Nobel',  sub: 'Clásico' },
-  { img: 'img/productos/carrusel/licores/nobelbarrica.webp',  name: 'Mistral Nobel',  sub: 'Barrica Tostada' },
-  { img: 'img/productos/carrusel/licores/nobelapple.webp',    name: 'Mistral Nobel',  sub: 'Apple' },
+  { img: 'img/productos/carrusel/licores/nobelclasico.webp', name: 'Mistral Nobel', sub: 'Clásico' },
+  { img: 'img/productos/carrusel/licores/nobelbarrica.webp', name: 'Mistral Nobel', sub: 'Barrica Tostada' },
+  { img: 'img/productos/carrusel/licores/nobelapple.webp', name: 'Mistral Nobel', sub: 'Apple' },
   // Jack Daniel's
-  { img: 'img/productos/carrusel/licores/jackno7.webp',       name: "Jack Daniel's",  sub: 'No. 7' },
-  { img: 'img/productos/carrusel/licores/jacapple.webp',      name: "Jack Daniel's",  sub: 'Apple' },
-  { img: 'img/productos/carrusel/licores/jackhoney.webp',     name: "Jack Daniel's",  sub: 'Honey' },
-  { img: 'img/productos/carrusel/licores/singlebarrel.webp',  name: "Jack Daniel's",  sub: 'Single Barrel' },
-  { img: 'img/productos/carrusel/licores/blackberry.webp',    name: "Jack Daniel's",  sub: 'Blackberry' },
+  { img: 'img/productos/carrusel/licores/jackno7.webp', name: "Jack Daniel's", sub: 'No. 7' },
+  { img: 'img/productos/carrusel/licores/jacapple.webp', name: "Jack Daniel's", sub: 'Apple' },
+  { img: 'img/productos/carrusel/licores/jackhoney.webp', name: "Jack Daniel's", sub: 'Honey' },
+  { img: 'img/productos/carrusel/licores/singlebarrel.webp', name: "Jack Daniel's", sub: 'Single Barrel' },
+  { img: 'img/productos/carrusel/licores/blackberry.webp', name: "Jack Daniel's", sub: 'Blackberry' },
   // Johnnie Walker
-  { img: 'img/productos/carrusel/licores/blacklabel.webp',    name: 'Johnnie Walker', sub: 'Black Label' },
-  { img: 'img/productos/carrusel/licores/blueblabel.webp',    name: 'Johnnie Walker', sub: 'Blue Label' },
-  // Don Julio
-  { img: 'img/productos/carrusel/licores/donjuliob.webp',     name: 'Don Julio',      sub: 'Reposado' },
-  { img: 'img/productos/carrusel/licores/donjulioa.webp',     name: 'Don Julio',      sub: 'Agave' },
+  { img: 'img/productos/carrusel/licores/blacklabel.webp', name: 'Johnnie Walker', sub: 'Black Label' },
+  { img: 'img/productos/carrusel/licores/blueblabel.webp', name: 'Johnnie Walker', sub: 'Blue Label' },
   // José Cuervo
-  { img: 'img/productos/carrusel/licores/josecuervoa.webp',   name: 'José Cuervo',    sub: 'Reposado' },
-  { img: 'img/productos/carrusel/licores/josecuervob.webp',   name: 'José Cuervo',    sub: 'Agave' },
+  { img: 'img/productos/carrusel/licores/josecuervoa.webp', name: 'José Cuervo', sub: 'Reposado' },
+  { img: 'img/productos/carrusel/licores/josecuervob.webp', name: 'José Cuervo', sub: 'Agave' },
   // Gins
-  { img: 'img/productos/carrusel/licores/hendricks.webp',     name: "Hendrick's",     sub: 'Gin' },
-  { img: 'img/productos/carrusel/licores/tanqueray.webp',     name: 'Tanqueray',      sub: 'Gin' },
+  { img: 'img/productos/carrusel/licores/hendricks.webp', name: "Hendrick's", sub: 'Gin' },
+  { img: 'img/productos/carrusel/licores/tanqueray.webp', name: 'Tanqueray', sub: 'Gin' },
   // Otros
-  { img: 'img/productos/carrusel/licores/jager.webp',         name: 'Jägermeister',   sub: 'Licor de Hierbas' },
-  { img: 'img/productos/carrusel/licores/absolut.webp',       name: 'Absolut',        sub: 'Vodka' },
+  { img: 'img/productos/carrusel/licores/jager.webp', name: 'Jägermeister', sub: 'Licor de Hierbas' },
+  { img: 'img/productos/carrusel/licores/absolut.webp', name: 'Absolut', sub: 'Vodka' },
 ];
 
 /* ─── AGE GATE ────────────────────────────────────────── */
@@ -79,10 +76,10 @@ const PRODUCTS = [
 
 /* ─── CAROUSEL ────────────────────────────────────────── */
 (function initCarousel() {
-  const track  = document.getElementById('carousel-track');
+  const track = document.getElementById('carousel-track');
   const dotsEl = document.getElementById('c-dots');
-  const prev   = document.getElementById('c-prev');
-  const next   = document.getElementById('c-next');
+  const prev = document.getElementById('c-prev');
+  const next = document.getElementById('c-next');
   if (!track) return;
 
   /* Build items */
@@ -95,9 +92,9 @@ const PRODUCTS = [
     track.appendChild(item);
   });
 
-  const itemW    = () => (track.querySelector('.c-item')?.offsetWidth || 230) + 3;
+  const itemW = () => (track.querySelector('.c-item')?.offsetWidth || 230) + 3;
   const visCount = () => Math.max(1, Math.round(track.offsetWidth / itemW()));
-  const total    = () => Math.ceil(PRODUCTS.length / visCount());
+  const total = () => Math.ceil(PRODUCTS.length / visCount());
 
   function buildDots() {
     dotsEl.innerHTML = '';
@@ -117,7 +114,7 @@ const PRODUCTS = [
   window.addEventListener('resize', buildDots);
 
   prev.addEventListener('click', () => track.scrollBy({ left: -(itemW() * visCount()), behavior: 'smooth' }));
-  next.addEventListener('click', () => track.scrollBy({ left:   itemW() * visCount(),  behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: itemW() * visCount(), behavior: 'smooth' }));
 
   /* Mouse drag */
   let drag = false, sx = 0, sl = 0;

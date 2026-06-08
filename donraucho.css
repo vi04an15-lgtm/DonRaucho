@@ -107,7 +107,7 @@ nav {
 .hero-bg.ready { transform: scale(1) }
 .hero-ov { position: absolute; inset: 0; background: var(--hero-ov); transition: background .45s }
 .hero-body { position: relative; z-index: 1; padding: 0 20px; max-width: 780px; width: 100% }
-.hero-label { font-family: var(--font-c); font-size: 9px; letter-spacing: .35em; color: var(--gold); margin-bottom: 24px; animation: heroIn .9s .3s both }
+.hero-label { font-family: var(--font-c); font-size: 9px; letter-spacing: .35em; color: var(--fg); margin-bottom: 24px; animation: heroIn .9s .3s both }
 .hero-h1 { font-family: var(--font-d); font-size: clamp(60px,14vw,116px); font-weight: 400; line-height: .92; letter-spacing: -.01em; color: var(--fg); animation: heroIn 1s .55s both }
 .hero-h1 em { font-style: italic; color: var(--gold-lt) }
 .hero-sub { font-size: clamp(14px,3.5vw,16px); color: var(--fg-muted); margin-top: 20px; letter-spacing: .03em; line-height: 1.65; animation: heroIn .9s .78s both }
