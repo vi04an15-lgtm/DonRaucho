@@ -1,0 +1,26 @@
+{
+  "name": "donraucho",
+  "version": "1.0.0",
+  "description": "Página web diseñada para la botillería Don Raucho",
+  "main": "donraucho.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vi04an15-lgtm/DonRaucho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/vi04an15-lgtm/DonRaucho/issues"
+  },
+  "homepage": "https://github.com/vi04an15-lgtm/DonRaucho#readme",
+  "devDependencies": {
+    "vite": "^8.0.16"
+  }
+}

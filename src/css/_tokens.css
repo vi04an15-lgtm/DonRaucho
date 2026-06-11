@@ -1,0 +1,51 @@
+:root {
+  --bg:       #0d0b09;
+  --bg2:      #131108;
+  --bg3:      #1d1a12;
+  --fg:       #ede5d4;
+  --fg-muted: rgba(237,229,212,.52);
+  --fg-dim:   rgba(237,229,212,.2);
+  --gold:     #c49040;
+  --gold-lt:  #e8c478;
+  --gold-dim: rgba(196,144,64,.12);
+  --border:   rgba(196,144,64,.14);
+  --nav-bg:   rgba(13,11,9,.88);
+  --hero-ov:  rgba(8,6,4,.62);
+  --card:     rgba(255,255,255,.035);
+  --font-d:   'Cormorant Garamond', Georgia, serif;
+  --font-c:   'Cinzel', serif;
+  --font-b:   'DM Sans', system-ui, sans-serif;
+  --nh:       64px;
+}
+
+[data-theme="crema"] {
+  --bg:       #f4efe5;
+  --bg2:      #ece6d8;
+  --bg3:      #e0d8c8;
+  --fg:       #1a130a;
+  --fg-muted: rgba(26,19,10,.5);
+  --fg-dim:   rgba(26,19,10,.2);
+  --gold:     #8b4018;
+  --gold-lt:  #b56030;
+  --gold-dim: rgba(139,64,24,.1);
+  --border:   rgba(139,64,24,.16);
+  --nav-bg:   rgba(244,239,229,.92);
+  --hero-ov:  rgba(18,10,4,.68);
+  --card:     rgba(0,0,0,.03);
+}
+
+[data-theme="carbon"] {
+  --bg:       #171513;
+  --bg2:      #1f1d1a;
+  --bg3:      #282420;
+  --fg:       #e8e0d0;
+  --fg-muted: rgba(232,224,208,.52);
+  --fg-dim:   rgba(232,224,208,.2);
+  --gold:     #d4a845;
+  --gold-lt:  #f0cc70;
+  --gold-dim: rgba(212,168,69,.12);
+  --border:   rgba(212,168,69,.15);
+  --nav-bg:   rgba(23,21,19,.9);
+  --hero-ov:  rgba(10,8,6,.6);
+  --card:     rgba(255,255,255,.04);
+}

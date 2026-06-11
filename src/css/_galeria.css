@@ -1,0 +1,43 @@
+.galeria { padding-bottom: 0 }
+.gal-head { margin-bottom: 48px }
+
+.embla { overflow: hidden; padding: 8px 0 16px }
+
+/* margin-right en lugar de gap: garantiza que -50% sea exacto */
+.embla__container {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: carousel-ticker 40s linear infinite;
+}
+.embla__container:hover { animation-play-state: paused }
+
+@keyframes carousel-ticker {
+  to { transform: translateX(-50%) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .embla__container { animation: none }
+}
+
+.c-item {
+  flex: 0 0 220px;
+  margin-right: 16px;
+  background: var(--bg3);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
+  transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, background .45s, border-color .45s;
+}
+.c-item:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.5); border-color: var(--gold) }
+.c-item:hover .c-img { transform: scale(1.05) }
+
+.c-img-wrap { aspect-ratio: 3/4; overflow: hidden; border-radius: 16px 16px 0 0 }
+.c-img { width: 100%; height: 100%; object-fit: cover; object-position: left center; transition: transform .7s cubic-bezier(.16,1,.3,1) }
+.c-caption { padding: 14px 16px 16px }
+.c-name { font-family: var(--font-d); font-size: 15px; font-weight: 400 }
+.c-sub { font-family: var(--font-c); font-size: 9px; letter-spacing: .15em; color: var(--gold); margin-top: 5px }
+
+/* Controles ocultos — ticker no necesita prev/next ni dots */
+.gal-controls { display: none }

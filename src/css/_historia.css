@@ -1,0 +1,8 @@
+.historia { background: var(--bg2); text-align: center; transition: background .45s }
+.historia .wrap { max-width: 720px }
+.historia .rule { margin: 26px auto }
+.hist-body { font-size: clamp(15px,3.8vw,17px); line-height: 1.85; color: var(--fg-muted); font-weight: 300 }
+.hist-body + .hist-body { margin-top: 16px }
+.hist-stats { display: flex; gap: 40px; justify-content: center; margin-top: 52px; padding-top: 44px; border-top: 1px solid var(--border); flex-wrap: wrap }
+.stat-val { font-family: var(--font-d); font-size: clamp(38px,9vw,52px); font-weight: 300; color: var(--gold); line-height: 1 }
+.stat-lbl { font-family: var(--font-c); font-size: 9px; letter-spacing: .28em; color: var(--fg-muted); margin-top: 8px }

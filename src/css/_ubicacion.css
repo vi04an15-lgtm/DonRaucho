@@ -1,0 +1,13 @@
+.ubicacion { background: var(--bg2); transition: background .45s }
+.ubic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start }
+.info-list { display: flex; flex-direction: column; gap: 28px; margin-top: 40px }
+.info-lbl { font-family: var(--font-c); font-size: 9px; letter-spacing: .3em; color: var(--gold); margin-bottom: 8px }
+.info-val { font-size: 15px; line-height: 1.75 }
+.info-val a:hover { color: var(--gold) }
+.hrs { display: grid; grid-template-columns: auto 1fr; gap: 3px 16px; font-size: 14px }
+.hrs .d { color: var(--fg-muted); white-space: nowrap }
+.hrs .t { color: var(--fg) }
+.map-box { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; aspect-ratio: 4/3; transition: border-color .45s }
+.map-box iframe { width: 100%; height: 100%; border: none; display: block }
+.gmap-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-family: var(--font-c); font-size: 10px; letter-spacing: .2em; color: var(--gold); transition: opacity .2s }
+.gmap-link:hover { opacity: .65 }

@@ -1,0 +1,9 @@
+#tweaks { position: fixed; bottom: 24px; left: 24px; z-index: 400; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 18px; width: 200px; box-shadow: 0 8px 40px rgba(0,0,0,.45); display: none; transition: background .45s, border-color .45s }
+#tweaks.show { display: block }
+.tw-title { font-family: var(--font-c); font-size: 8px; letter-spacing: .35em; color: var(--gold); margin-bottom: 12px }
+.tw-lbl { font-size: 11px; color: var(--fg-muted); margin-bottom: 8px }
+.tw-opts { display: flex; flex-direction: column; gap: 5px }
+.tw-btn { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; border: 1px solid transparent; font-size: 11px; color: var(--fg-muted); transition: all .2s; text-align: left }
+.tw-btn.on { border-color: var(--gold); color: var(--fg); background: var(--gold-dim) }
+.tw-btn:hover:not(.on) { background: var(--card) }
+.swatch { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0 }

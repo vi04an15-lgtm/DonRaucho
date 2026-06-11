@@ -1,0 +1,58 @@
+/* ── Tablet / Mobile base (< 900px) ─────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 0 16px }
+  .nav-links { display: none }
+  .nav-hamburger { display: flex }
+
+  section { padding: 72px 20px }
+  footer { padding: 48px 20px 24px }
+
+  .embla { padding: 8px 0 16px }
+  .c-item { flex: 0 0 200px; margin-right: 12px }
+
+  .ubic-grid { grid-template-columns: 1fr; gap: 36px }
+
+  .ft-grid { grid-template-columns: 1fr; gap: 28px }
+  .ft-bottom { flex-direction: column; text-align: center }
+
+  .hero-ctas a { padding: 16px 24px }
+  .hist-stats { gap: 28px }
+
+  #tweaks { display: none !important }
+}
+
+/* ── Móvil (< 480px) — público objetivo principal ──────── */
+@media (max-width: 480px) {
+  section { padding: 60px 16px }
+  footer { padding: 40px 16px max(20px, env(safe-area-inset-bottom)) }
+
+  .embla { padding: 8px 0 16px }
+
+  /* Tarjetas más anchas para ver bien las imágenes en móvil */
+  .c-item { flex: 0 0 65vw; margin-right: 10px; border-radius: 12px }
+  .c-img-wrap { border-radius: 12px 12px 0 0 }
+  .c-name { font-size: 14px }
+
+  .hero-ctas { flex-direction: column; align-items: center }
+  .hero-ctas a { width: 100%; max-width: 280px; text-align: center }
+
+  .s-title { font-size: clamp(28px, 8vw, 42px) }
+  .stat-val { font-size: 36px }
+  .hero-label { letter-spacing: .22em }
+
+  .hist-stats { gap: 20px }
+  .ubic-grid { gap: 24px }
+  .map-box { aspect-ratio: 1 / 1 }
+
+  .age-btns { flex-direction: column; align-items: center }
+
+  .ft-social { gap: 14px }
+}
+
+/* ── Teléfonos pequeños (< 380px) ─────────────────────── */
+@media (max-width: 380px) {
+  .c-item { flex: 0 0 72vw }
+  .s-title { font-size: clamp(26px, 7.5vw, 36px) }
+  .hero-h1 { font-size: clamp(52px, 15vw, 80px) }
+  .hero-label { font-size: 8px; letter-spacing: .18em }
+}

@@ -1,0 +1,39 @@
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: var(--nh);
+  display: flex; align-items: center; padding: 0 32px;
+  backdrop-filter: blur(18px) saturate(1.5);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  transition: background .45s, border-color .45s;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0 }
+.nav-brand img { width: 38px; height: 38px; object-fit: contain }
+.nav-name { font-family: var(--font-c); font-size: 12px; letter-spacing: .14em; color: var(--fg) }
+.nav-links { list-style: none; display: flex; gap: 36px; flex: 1; justify-content: center }
+.nav-links a { font-family: var(--font-c); font-size: 11px; letter-spacing: .12em; color: var(--fg-muted); transition: color .2s }
+.nav-links a:hover { color: var(--gold) }
+.nav-hamburger {
+  display: none; align-items: center; justify-content: center;
+  margin-left: auto;
+  font-size: 22px; color: var(--fg);
+  width: 44px; height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-mobile {
+  display: none; position: fixed;
+  inset: var(--nh) 0 0 0; z-index: 190;
+  background: var(--bg); padding: 40px 28px;
+  flex-direction: column; gap: 0;
+  overflow-y: auto;
+  transition: background .45s;
+}
+.nav-mobile.open { display: flex }
+.nav-mobile a {
+  font-family: var(--font-c); font-size: 18px; letter-spacing: .1em;
+  color: var(--fg); padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-mobile a:hover { color: var(--gold) }

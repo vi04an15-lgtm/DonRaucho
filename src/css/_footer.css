@@ -1,0 +1,17 @@
+footer { border-top: 1px solid var(--border); padding: 60px 32px max(28px, env(safe-area-inset-bottom)); transition: border-color .45s }
+.ft-grid { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; padding-bottom: 44px; border-bottom: 1px solid var(--border); margin-bottom: 24px }
+.ft-brand { display: flex; gap: 14px }
+.ft-brand img { width: 48px; flex-shrink: 0; object-fit: contain }
+.ft-bname { font-family: var(--font-c); font-size: 13px; letter-spacing: .12em; margin-bottom: 8px }
+.ft-tag { font-size: 12px; color: var(--fg-muted); line-height: 1.7 }
+.ft-social { display: flex; gap: 10px; margin-top: 20px }
+.soc { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--fg-muted); transition: border-color .2s, color .2s, background .2s; -webkit-tap-highlight-color: transparent }
+.soc:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim) }
+.soc svg { width: 15px; height: 15px }
+.ft-col-lbl { font-family: var(--font-c); font-size: 9px; letter-spacing: .32em; color: var(--gold); margin-bottom: 16px }
+.ft-hrs { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 12px }
+.ft-hrs .d { color: var(--fg-muted); white-space: nowrap }
+.ft-hrs .t { color: var(--fg) }
+.ft-contact { display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: var(--fg-muted) }
+.ft-contact a:hover { color: var(--gold) }
+.ft-bottom { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-c); font-size: 9px; letter-spacing: .07em; color: var(--fg-dim); flex-wrap: wrap; gap: 8px }

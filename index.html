@@ -3,21 +3,22 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0b09">
   <meta name="description"
     content="Don Raucho Botillería — La mejor selección de licores, whiskies y vinos finos en Angol, Araucanía.">
   <title>Don Raucho · Botillería Premium · Angol</title>
 
-  <link rel="icon" type="image/png" href="img/logo.png">
-  <link rel="apple-touch-icon" href="img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" href="/img/logo.png">
 
   <!-- Preload críticos -->
-  <link rel="preload" href="img/bar.webp" as="image">
-  <link rel="preload" href="img/logo.png" as="image">
+  <link rel="preload" href="/img/bar.webp" as="image">
+  <link rel="preload" href="/img/logo.png" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="donraucho.css">
+  <link rel="stylesheet" href="src/css/main.css">
 
   <script type="application/ld+json">
   {
@@ -48,7 +49,7 @@
   <!-- AGE GATE ══════════════════════════════════════════ -->
   <div class="age-gate" id="age-gate">
     <div class="age-box">
-      <img class="age-logo" src="img/logo.png" alt="Don Raucho">
+      <img class="age-logo" src="/img/logo.png" alt="Don Raucho">
       <h2 class="age-h">Verificación de Edad</h2>
       <p class="age-p">Para acceder a nuestro sitio debes ser<br>mayor de 18 años.</p>
       <div class="age-btns">
@@ -62,7 +63,7 @@
   <!-- NAV ════════════════════════════════════════════════ -->
   <nav>
     <a href="#hero" class="nav-brand">
-      <img src="img/logo.png" alt="Don Raucho">
+      <img src="/img/logo.png" alt="Don Raucho">
       <span class="nav-name">DON RAUCHO</span>
     </a>
     <ul class="nav-links">
@@ -131,7 +132,9 @@
       <span class="s-label reveal">SELECCIÓN</span>
       <h2 class="s-title reveal d1">Nuestros<br><em>Productos</em></h2>
     </div>
-    <div id="carousel-track" class="carousel-track"></div>
+    <div class="embla">
+      <div class="embla__container" id="carousel-track"></div>
+    </div>
     <div class="gal-controls">
       <button class="c-btn" id="c-prev" aria-label="Anterior">←</button>
       <div class="c-dots" id="c-dots"></div>
@@ -199,7 +202,7 @@
 
       <div>
         <div class="ft-brand">
-          <img src="img/logo.png" alt="Don Raucho">
+          <img src="/img/logo.png" alt="Don Raucho">
           <div>
             <div class="ft-bname">DON RAUCHO</div>
             <p class="ft-tag">La mejor selección de licores en Angol.<br>Un legado de integridad.</p>
@@ -270,7 +273,7 @@
     </div>
   </div>
 
-  <script src="donraucho.js"></script>
+  <script type="module" src="src/main.js"></script>
 </body>
 
 </html>

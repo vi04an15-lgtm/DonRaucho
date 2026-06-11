@@ -1,0 +1,12 @@
+.age-gate { position: fixed; inset: 0; z-index: 1000; background: var(--bg); display: flex; align-items: center; justify-content: center; transition: opacity .6s, visibility .6s }
+.age-gate.off { opacity: 0; visibility: hidden; pointer-events: none }
+.age-box { text-align: center; max-width: 380px; width: 100%; padding: 0 24px }
+.age-logo { width: 80px; margin: 0 auto 28px }
+.age-h { font-family: var(--font-d); font-size: clamp(26px,6vw,34px); font-weight: 400; margin-bottom: 12px }
+.age-p { font-size: 13px; color: var(--fg-muted); margin-bottom: 36px; line-height: 1.75 }
+.age-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap }
+.age-y { background: var(--gold); color: #0d0b09; font-family: var(--font-c); font-size: 10px; letter-spacing: .2em; padding: 16px 32px; border-radius: 3px; transition: background .2s; width: 100%; max-width: 260px; -webkit-tap-highlight-color: transparent }
+.age-y:hover { background: var(--gold-lt) }
+.age-n { border: 1px solid var(--border); color: var(--fg-muted); font-family: var(--font-c); font-size: 10px; letter-spacing: .2em; padding: 16px 32px; border-radius: 3px; transition: border-color .2s; width: 100%; max-width: 260px; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent }
+.age-n:hover { border-color: var(--fg-muted) }
+.age-legal { font-family: var(--font-c); font-size: 9px; letter-spacing: .08em; color: var(--fg-dim); margin-top: 24px }
