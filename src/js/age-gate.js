@@ -8,7 +8,7 @@ export default function initAgeGate() {
   }
 
   document.getElementById('age-yes').addEventListener('click', () => {
-    localStorage.setItem('dr-age', '1');
     gate.classList.add('off');
+    try { localStorage.setItem('dr-age', '1'); } catch (_) {}
   });
 }

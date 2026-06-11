@@ -1,5 +1,5 @@
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0 }
-html  { scroll-behavior: smooth; scroll-padding-top: var(--nh); overflow-x: clip }
+html  { scroll-behavior: smooth; scroll-padding-top: var(--nh) }
 body  { background: var(--bg); color: var(--fg); font-family: var(--font-b); line-height: 1.6; overflow-x: clip; transition: background .45s, color .45s }
 img   { display: block; max-width: 100% }
 a     { color: inherit; text-decoration: none }
