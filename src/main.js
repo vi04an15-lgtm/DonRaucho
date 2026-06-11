@@ -1,5 +1,3 @@
-import './css/main.css';
-
 import initAgeGate from './js/age-gate.js';
 import initHero    from './js/hero.js';
 import initNav     from './js/nav.js';
