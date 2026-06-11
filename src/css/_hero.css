@@ -1,4 +1,4 @@
-.hero { min-height: 100svh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden }
+.hero { min-height: 100vh; min-height: 100svh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden }
 .hero-bg { position: absolute; inset: 0; background: url('/img/bar.webp') center/cover no-repeat; transform: scale(1.06); transition: transform 7s ease-out }
 .hero-bg.ready { transform: scale(1) }
 .hero-ov { position: absolute; inset: 0; background: var(--hero-ov); transition: background .45s }
